@@ -3,6 +3,8 @@ package com.getir.readingisgood.controller;
 import com.getir.readingisgood.model.OrderCreateDTO;
 import com.getir.readingisgood.model.OrderResponseDTO;
 import com.getir.readingisgood.service.OrderService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,6 +21,7 @@ import java.util.List;
 @RestController
 @RequestMapping(path = "/order")
 public class OrderController {
+  Logger logger = LoggerFactory.getLogger(OrderController.class);
   private final OrderService orderService;
   private final DateFormat dateFormat;
 
@@ -41,6 +44,7 @@ public class OrderController {
   @PostMapping
   public ResponseEntity<OrderResponseDTO> createOrder(
       @Valid @RequestBody OrderCreateDTO orderCreateDTO) {
+    logger.info("createOrder starting -> orderCreateDTO:{}", orderCreateDTO);
     return ResponseEntity.ok(orderService.createOrder(orderCreateDTO));
   }
 
@@ -52,6 +56,7 @@ public class OrderController {
    */
   @GetMapping("/{id}")
   public ResponseEntity<OrderResponseDTO> getOrdersByCustomerId(@PathVariable String id) {
+    logger.info("getOrdersByCustomerId starting -> id:{}", id);
     return ResponseEntity.ok(orderService.getOrderById(id));
   }
 
@@ -68,6 +73,7 @@ public class OrderController {
       @RequestHeader(value = "startDate") String endDate,
       @RequestHeader(value = "endDate") String startDate)
       throws ParseException {
+    logger.info("getOrdersByDateInterval starting -> endDate:{}, startDate:{}", endDate, startDate);
     return ResponseEntity.ok(
         orderService.getOrdersByDateInterval(
             dateFormat.parse(endDate), dateFormat.parse(startDate)));

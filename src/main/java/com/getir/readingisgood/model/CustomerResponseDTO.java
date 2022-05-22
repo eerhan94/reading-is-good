@@ -119,4 +119,28 @@ public class CustomerResponseDTO {
   public void setAddress(String address) {
     this.address = address;
   }
+
+  @Override
+  public String toString() {
+    return "CustomerResponseDTO{"
+        + "id='"
+        + id
+        + '\''
+        + ", name='"
+        + name
+        + '\''
+        + ", surname='"
+        + surname
+        + '\''
+        + ", email='"
+        + email
+        + '\''
+        + ", phone='"
+        + phone
+        + '\''
+        + ", address='"
+        + address
+        + '\''
+        + '}';
+  }
 }

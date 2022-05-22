@@ -109,4 +109,24 @@ public class Order {
   public Date getUpdatedAt() {
     return updatedAt;
   }
+
+  @Override
+  public String toString() {
+    return "Order{"
+        + "id='"
+        + id
+        + '\''
+        + ", customerId='"
+        + customerId
+        + '\''
+        + ", totalPrice="
+        + totalPrice
+        + ", orderBooks="
+        + orderBooks
+        + ", createdAt="
+        + createdAt
+        + ", updatedAt="
+        + updatedAt
+        + '}';
+  }
 }

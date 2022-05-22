@@ -104,4 +104,22 @@ public class OrderResponseDTO {
   public void setOrderBooks(List<OrderBook> orderBooks) {
     this.orderBooks = orderBooks;
   }
+
+  @Override
+  public String toString() {
+    return "OrderResponseDTO{"
+        + "id='"
+        + id
+        + '\''
+        + ", createdAt="
+        + createdAt
+        + ", customerId='"
+        + customerId
+        + '\''
+        + ", totalPrice="
+        + totalPrice
+        + ", orderBooks="
+        + orderBooks
+        + '}';
+  }
 }

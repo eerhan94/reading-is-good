@@ -4,6 +4,8 @@ import com.getir.readingisgood.configuration.JwtUtil;
 import com.getir.readingisgood.model.AuthenticationRequest;
 import com.getir.readingisgood.model.AuthenticationResponse;
 import com.getir.readingisgood.service.CustomUserDetailsService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -20,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(path = "/authenticate")
 public class AuthenticationController {
+  Logger logger = LoggerFactory.getLogger(AuthenticationController.class);
   private final JwtUtil jwtUtil;
   private final AuthenticationManager authenticationManager;
   private final CustomUserDetailsService userDetailsService;
@@ -49,6 +52,7 @@ public class AuthenticationController {
   @PostMapping
   public ResponseEntity<AuthenticationResponse> creteToken(
       @RequestBody AuthenticationRequest authRequest) {
+    logger.info("AuthenticationRequest -> Username: {}", authRequest.getUsername());
     authenticationManager.authenticate(
         new UsernamePasswordAuthenticationToken(
             authRequest.getUsername(), authRequest.getPassword()));

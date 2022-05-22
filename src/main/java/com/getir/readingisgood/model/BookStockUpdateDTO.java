@@ -49,4 +49,9 @@ public class BookStockUpdateDTO {
   public void setQuantity(Integer quantity) {
     this.quantity = quantity;
   }
+
+  @Override
+  public String toString() {
+    return "BookStockUpdateDTO{" + "id='" + id + '\'' + ", quantity=" + quantity + '}';
+  }
 }

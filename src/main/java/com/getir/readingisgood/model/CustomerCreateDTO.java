@@ -111,4 +111,25 @@ public class CustomerCreateDTO {
   public void setAddress(String address) {
     this.address = address;
   }
+
+  @Override
+  public String toString() {
+    return "CustomerCreateDTO{"
+        + "name='"
+        + name
+        + '\''
+        + ", surname='"
+        + surname
+        + '\''
+        + ", email='"
+        + email
+        + '\''
+        + ", phone='"
+        + phone
+        + '\''
+        + ", address='"
+        + address
+        + '\''
+        + '}';
+  }
 }

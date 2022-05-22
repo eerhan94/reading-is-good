@@ -5,6 +5,8 @@ import com.getir.readingisgood.model.CustomerCreateDTO;
 import com.getir.readingisgood.model.CustomerResponseDTO;
 import com.getir.readingisgood.service.CustomerService;
 import com.getir.readingisgood.service.OrderService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +21,7 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping(path = "/customer")
 public class CustomerController {
+  Logger logger = LoggerFactory.getLogger(CustomerController.class);
   private final CustomerService customerService;
   private final OrderService orderService;
 
@@ -43,6 +46,7 @@ public class CustomerController {
   @PostMapping
   public ResponseEntity<CustomerResponseDTO> createCustomer(
       @Valid @RequestBody CustomerCreateDTO customerCreateDTO) {
+    logger.info("createCustomer starting -> bookCreateDTO:{}", customerCreateDTO);
     return ResponseEntity.ok(customerService.createCustomer(customerCreateDTO));
   }
 
@@ -57,6 +61,11 @@ public class CustomerController {
   @GetMapping("/orders")
   public ResponseEntity<Page<Order>> getOrdersByCustomerId(
       @RequestParam String id, @RequestParam int pageIndex, @RequestParam int pageSize) {
+    logger.info(
+        "getOrdersByCustomerId starting -> id:{}, pageIndex:{}, pageSize:{}",
+        id,
+        pageIndex,
+        pageSize);
     return ResponseEntity.ok(orderService.getCustomerOrders(id, pageIndex, pageSize));
   }
 }

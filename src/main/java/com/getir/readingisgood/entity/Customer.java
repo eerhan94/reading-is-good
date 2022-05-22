@@ -144,4 +144,32 @@ public class Customer {
   public Date getUpdatedAt() {
     return updatedAt;
   }
+
+  @Override
+  public String toString() {
+    return "Customer{"
+        + "id='"
+        + id
+        + '\''
+        + ", name='"
+        + name
+        + '\''
+        + ", surname='"
+        + surname
+        + '\''
+        + ", email='"
+        + email
+        + '\''
+        + ", phone='"
+        + phone
+        + '\''
+        + ", address='"
+        + address
+        + '\''
+        + ", createdAt="
+        + createdAt
+        + ", updatedAt="
+        + updatedAt
+        + '}';
+  }
 }

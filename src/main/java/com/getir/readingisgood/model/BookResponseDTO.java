@@ -81,4 +81,20 @@ public class BookResponseDTO {
   public void setPrice(Double price) {
     this.price = price;
   }
+
+  @Override
+  public String toString() {
+    return "BookResponseDTO{"
+        + "id='"
+        + id
+        + '\''
+        + ", name='"
+        + name
+        + '\''
+        + ", quantity="
+        + quantity
+        + ", price="
+        + price
+        + '}';
+  }
 }

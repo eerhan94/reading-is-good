@@ -4,6 +4,8 @@ import com.getir.readingisgood.model.BookCreateDTO;
 import com.getir.readingisgood.model.BookResponseDTO;
 import com.getir.readingisgood.model.BookStockUpdateDTO;
 import com.getir.readingisgood.service.BookService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +19,7 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping(path = "/book")
 public class BookController {
+  Logger logger = LoggerFactory.getLogger(BookController.class);
   private final BookService bookService;
 
   /**
@@ -38,6 +41,7 @@ public class BookController {
   @PostMapping()
   public ResponseEntity<BookResponseDTO> bookCreate(
       @Valid @RequestBody BookCreateDTO bookCreateDTO) {
+    logger.info("bookCreate starting -> bookCreateDTO:{}", bookCreateDTO);
     return ResponseEntity.ok(bookService.createBook(bookCreateDTO));
   }
 
@@ -50,6 +54,7 @@ public class BookController {
   @PutMapping
   public ResponseEntity<BookResponseDTO> bookStockUpdate(
       @Valid @RequestBody BookStockUpdateDTO bookStockUpdateDTO) {
+    logger.info("bookStockUpdate starting -> bookStockUpdateDTO:{}", bookStockUpdateDTO);
     return ResponseEntity.ok(bookService.bookStockUpdate(bookStockUpdateDTO));
   }
 }

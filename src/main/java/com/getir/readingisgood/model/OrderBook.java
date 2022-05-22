@@ -42,4 +42,9 @@ public class OrderBook {
   public void setQuantity(Integer quantity) {
     this.quantity = quantity;
   }
+
+  @Override
+  public String toString() {
+    return "OrderBook{" + "bookId='" + bookId + '\'' + ", quantity=" + quantity + '}';
+  }
 }

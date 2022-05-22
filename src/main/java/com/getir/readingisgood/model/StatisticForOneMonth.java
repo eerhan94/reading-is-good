@@ -81,4 +81,19 @@ public class StatisticForOneMonth {
   public void setTotalPurchasedAmount(double totalPurchasedAmount) {
     this.totalPurchasedAmount = totalPurchasedAmount;
   }
+
+  @Override
+  public String toString() {
+    return "StatisticForOneMonth{"
+        + "month='"
+        + month
+        + '\''
+        + ", totalOrderCount="
+        + totalOrderCount
+        + ", totalBookCount="
+        + totalBookCount
+        + ", totalPurchasedAmount="
+        + totalPurchasedAmount
+        + '}';
+  }
 }

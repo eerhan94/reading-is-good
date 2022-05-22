@@ -70,4 +70,17 @@ public class BookCreateDTO {
   public void setPrice(Double price) {
     this.price = price;
   }
+
+  @Override
+  public String toString() {
+    return "BookCreateDTO{"
+        + "name='"
+        + name
+        + '\''
+        + ", quantity="
+        + quantity
+        + ", price="
+        + price
+        + '}';
+  }
 }

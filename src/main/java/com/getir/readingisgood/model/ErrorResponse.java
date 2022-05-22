@@ -54,4 +54,9 @@ public class ErrorResponse {
   public void setMessage(String message) {
     this.message = message;
   }
+
+  @Override
+  public String toString() {
+    return "ErrorResponse{" + "code=" + code + ", message='" + message + '\'' + '}';
+  }
 }

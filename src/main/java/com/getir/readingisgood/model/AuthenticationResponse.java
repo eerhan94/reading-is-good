@@ -24,4 +24,9 @@ public class AuthenticationResponse {
   public String getToken() {
     return token;
   }
+
+  @Override
+  public String toString() {
+    return "AuthenticationResponse{" + "token='" + token + '\'' + '}';
+  }
 }

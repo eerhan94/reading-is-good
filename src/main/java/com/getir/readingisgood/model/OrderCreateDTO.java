@@ -48,4 +48,9 @@ public class OrderCreateDTO {
   public void setBooks(List<OrderBook> books) {
     this.books = books;
   }
+
+  @Override
+  public String toString() {
+    return "OrderCreateDTO{" + "customerId='" + customerId + '\'' + ", books=" + books + '}';
+  }
 }

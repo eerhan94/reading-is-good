@@ -106,4 +106,24 @@ public class Book {
   public Date getUpdatedAt() {
     return updatedAt;
   }
+
+  @Override
+  public String toString() {
+    return "Book{"
+        + "id='"
+        + id
+        + '\''
+        + ", name='"
+        + name
+        + '\''
+        + ", quantity="
+        + quantity
+        + ", price="
+        + price
+        + ", createdAt="
+        + createdAt
+        + ", updatedAt="
+        + updatedAt
+        + '}';
+  }
 }
