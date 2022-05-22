@@ -13,7 +13,7 @@ public class AuthenticationRequest {
    *
    * @return the username
    */
-  public String getUsername() {
+public String getUsername() {
     return username;
   }
 
@@ -22,7 +22,7 @@ public class AuthenticationRequest {
    *
    * @param username the username
    */
-  public void setUsername(String username) {
+public void setUsername(String username) {
     this.username = username;
   }
 
@@ -31,7 +31,7 @@ public class AuthenticationRequest {
    *
    * @return the password
    */
-  public String getPassword() {
+public String getPassword() {
     return password;
   }
 
@@ -40,7 +40,7 @@ public class AuthenticationRequest {
    *
    * @param password the password
    */
-  public void setPassword(String password) {
+public void setPassword(String password) {
     this.password = password;
   }
 

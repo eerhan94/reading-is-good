@@ -14,7 +14,7 @@ public class GlobalApiException extends RuntimeException {
    *
    * @param errorCode the error code
    */
-  public GlobalApiException(ErrorCodes errorCode) {
+public GlobalApiException(ErrorCodes errorCode) {
     super();
     this.code = errorCode.getCode();
     this.message = errorCode.getMessage();
@@ -25,7 +25,7 @@ public class GlobalApiException extends RuntimeException {
    *
    * @return the code
    */
-  public int getCode() {
+public int getCode() {
     return code;
   }
 

@@ -24,7 +24,7 @@ public class Customer {
    *
    * @return the ıd
    */
-  public String getId() {
+public String getId() {
     return id;
   }
 
@@ -33,7 +33,7 @@ public class Customer {
    *
    * @param id the id
    */
-  public void setId(String id) {
+public void setId(String id) {
     this.id = id;
   }
 
@@ -42,7 +42,7 @@ public class Customer {
    *
    * @return the name
    */
-  public String getName() {
+public String getName() {
     return name;
   }
 
@@ -51,7 +51,7 @@ public class Customer {
    *
    * @param name the name
    */
-  public void setName(String name) {
+public void setName(String name) {
     this.name = name;
   }
 
@@ -60,7 +60,7 @@ public class Customer {
    *
    * @return the surname
    */
-  public String getSurname() {
+public String getSurname() {
     return surname;
   }
 
@@ -69,7 +69,7 @@ public class Customer {
    *
    * @param surname the surname
    */
-  public void setSurname(String surname) {
+public void setSurname(String surname) {
     this.surname = surname;
   }
 
@@ -78,7 +78,7 @@ public class Customer {
    *
    * @return the email
    */
-  public String getEmail() {
+public String getEmail() {
     return email;
   }
 
@@ -87,7 +87,7 @@ public class Customer {
    *
    * @param email the email
    */
-  public void setEmail(String email) {
+public void setEmail(String email) {
     this.email = email;
   }
 
@@ -96,7 +96,7 @@ public class Customer {
    *
    * @return the phone
    */
-  public String getPhone() {
+public String getPhone() {
     return phone;
   }
 
@@ -105,7 +105,7 @@ public class Customer {
    *
    * @param phone the phone
    */
-  public void setPhone(String phone) {
+public void setPhone(String phone) {
     this.phone = phone;
   }
 
@@ -114,7 +114,7 @@ public class Customer {
    *
    * @return the address
    */
-  public String getAddress() {
+public String getAddress() {
     return address;
   }
 
@@ -123,7 +123,7 @@ public class Customer {
    *
    * @param address the address
    */
-  public void setAddress(String address) {
+public void setAddress(String address) {
     this.address = address;
   }
 
@@ -132,7 +132,7 @@ public class Customer {
    *
    * @return the created at
    */
-  public Date getCreatedAt() {
+public Date getCreatedAt() {
     return createdAt;
   }
 
@@ -141,7 +141,7 @@ public class Customer {
    *
    * @return the updated at
    */
-  public Date getUpdatedAt() {
+public Date getUpdatedAt() {
     return updatedAt;
   }
 

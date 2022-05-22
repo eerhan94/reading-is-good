@@ -25,7 +25,7 @@ public class Order {
    *
    * @return the ıd
    */
-  public String getId() {
+public String getId() {
     return id;
   }
 
@@ -34,7 +34,7 @@ public class Order {
    *
    * @param id the id
    */
-  public void setId(String id) {
+public void setId(String id) {
     this.id = id;
   }
 
@@ -43,7 +43,7 @@ public class Order {
    *
    * @return the customer ıd
    */
-  public String getCustomerId() {
+public String getCustomerId() {
     return customerId;
   }
 
@@ -52,7 +52,7 @@ public class Order {
    *
    * @param customerId the customer ıd
    */
-  public void setCustomerId(String customerId) {
+public void setCustomerId(String customerId) {
     this.customerId = customerId;
   }
 
@@ -61,7 +61,7 @@ public class Order {
    *
    * @return the total price
    */
-  public Double getTotalPrice() {
+public Double getTotalPrice() {
     return totalPrice;
   }
 
@@ -70,7 +70,7 @@ public class Order {
    *
    * @param totalPrice the total price
    */
-  public void setTotalPrice(Double totalPrice) {
+public void setTotalPrice(Double totalPrice) {
     this.totalPrice = totalPrice;
   }
 
@@ -79,7 +79,7 @@ public class Order {
    *
    * @return the order books
    */
-  public List<OrderBook> getOrderBooks() {
+public List<OrderBook> getOrderBooks() {
     return orderBooks;
   }
 
@@ -88,7 +88,7 @@ public class Order {
    *
    * @param orderBooks the order books
    */
-  public void setOrderBooks(List<OrderBook> orderBooks) {
+public void setOrderBooks(List<OrderBook> orderBooks) {
     this.orderBooks = orderBooks;
   }
 
@@ -97,7 +97,7 @@ public class Order {
    *
    * @return the created at
    */
-  public Date getCreatedAt() {
+public Date getCreatedAt() {
     return createdAt;
   }
 
@@ -106,7 +106,7 @@ public class Order {
    *
    * @return the updated at
    */
-  public Date getUpdatedAt() {
+public Date getUpdatedAt() {
     return updatedAt;
   }
 

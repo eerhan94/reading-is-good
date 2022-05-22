@@ -22,7 +22,7 @@ public interface OrderRepository extends MongoRepository<Order, String> {
    * @param pageable the pageable
    * @return the page
    */
-  Page<Order> findByCustomerId(String customerId, Pageable pageable);
+Page<Order> findByCustomerId(String customerId, Pageable pageable);
 
   /**
    * Find by created at between list.
@@ -31,5 +31,5 @@ public interface OrderRepository extends MongoRepository<Order, String> {
    * @param startDate the start date
    * @return the list
    */
-  List<Order> findByCreatedAtBetween(Date endDate, Date startDate);
+List<Order> findByCreatedAtBetween(Date endDate, Date startDate);
 }

@@ -15,7 +15,7 @@ public class OrderMapper {
    * @param order the order
    * @return the order response dto
    */
-  public OrderResponseDTO orderEntityToOrderResponse(Order order) {
+public OrderResponseDTO orderEntityToOrderResponse(Order order) {
     OrderResponseDTO orderResponseDTO = new OrderResponseDTO();
     orderResponseDTO.setId(order.getId());
     orderResponseDTO.setCreatedAt(order.getCreatedAt());

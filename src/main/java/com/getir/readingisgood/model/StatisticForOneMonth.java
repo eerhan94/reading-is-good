@@ -15,7 +15,7 @@ public class StatisticForOneMonth {
    *
    * @return the month
    */
-  public String getMonth() {
+public String getMonth() {
     return month;
   }
 
@@ -24,7 +24,7 @@ public class StatisticForOneMonth {
    *
    * @param month the month
    */
-  public void setMonth(String month) {
+public void setMonth(String month) {
     this.month = month;
   }
 
@@ -33,7 +33,7 @@ public class StatisticForOneMonth {
    *
    * @return the total order count
    */
-  public int getTotalOrderCount() {
+public int getTotalOrderCount() {
     return totalOrderCount;
   }
 
@@ -42,7 +42,7 @@ public class StatisticForOneMonth {
    *
    * @param totalOrderCount the total order count
    */
-  public void setTotalOrderCount(int totalOrderCount) {
+public void setTotalOrderCount(int totalOrderCount) {
     this.totalOrderCount = totalOrderCount;
   }
 
@@ -51,7 +51,7 @@ public class StatisticForOneMonth {
    *
    * @return the total book count
    */
-  public int getTotalBookCount() {
+public int getTotalBookCount() {
     return totalBookCount;
   }
 
@@ -60,7 +60,7 @@ public class StatisticForOneMonth {
    *
    * @param totalBookCount the total book count
    */
-  public void setTotalBookCount(int totalBookCount) {
+public void setTotalBookCount(int totalBookCount) {
     this.totalBookCount = totalBookCount;
   }
 
@@ -69,7 +69,7 @@ public class StatisticForOneMonth {
    *
    * @return the total purchased amount
    */
-  public double getTotalPurchasedAmount() {
+public double getTotalPurchasedAmount() {
     return totalPurchasedAmount;
   }
 
@@ -78,7 +78,7 @@ public class StatisticForOneMonth {
    *
    * @param totalPurchasedAmount the total purchased amount
    */
-  public void setTotalPurchasedAmount(double totalPurchasedAmount) {
+public void setTotalPurchasedAmount(double totalPurchasedAmount) {
     this.totalPurchasedAmount = totalPurchasedAmount;
   }
 

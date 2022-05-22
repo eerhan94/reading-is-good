@@ -15,7 +15,7 @@ public class BookResponseDTO {
    *
    * @return the ıd
    */
-  public String getId() {
+public String getId() {
     return id;
   }
 
@@ -24,7 +24,7 @@ public class BookResponseDTO {
    *
    * @param id the id
    */
-  public void setId(String id) {
+public void setId(String id) {
     this.id = id;
   }
 
@@ -33,7 +33,7 @@ public class BookResponseDTO {
    *
    * @return the name
    */
-  public String getName() {
+public String getName() {
     return name;
   }
 
@@ -42,7 +42,7 @@ public class BookResponseDTO {
    *
    * @param name the name
    */
-  public void setName(String name) {
+public void setName(String name) {
     this.name = name;
   }
 
@@ -51,7 +51,7 @@ public class BookResponseDTO {
    *
    * @return the quantity
    */
-  public Integer getQuantity() {
+public Integer getQuantity() {
     return quantity;
   }
 
@@ -60,7 +60,7 @@ public class BookResponseDTO {
    *
    * @param quantity the quantity
    */
-  public void setQuantity(Integer quantity) {
+public void setQuantity(Integer quantity) {
     this.quantity = quantity;
   }
 
@@ -69,7 +69,7 @@ public class BookResponseDTO {
    *
    * @return the price
    */
-  public Double getPrice() {
+public Double getPrice() {
     return price;
   }
 
@@ -78,7 +78,7 @@ public class BookResponseDTO {
    *
    * @param price the price
    */
-  public void setPrice(Double price) {
+public void setPrice(Double price) {
     this.price = price;
   }
 

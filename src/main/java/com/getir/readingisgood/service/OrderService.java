@@ -19,7 +19,7 @@ public interface OrderService {
    * @param orderCreateDTO the order create dto
    * @return the order response dto
    */
-  OrderResponseDTO createOrder(OrderCreateDTO orderCreateDTO);
+OrderResponseDTO createOrder(OrderCreateDTO orderCreateDTO);
 
   /**
    * Gets customer orders.
@@ -29,7 +29,7 @@ public interface OrderService {
    * @param pageSize the page size
    * @return the customer orders
    */
-  Page<Order> getCustomerOrders(String id, int pageIndex, int pageSize);
+Page<Order> getCustomerOrders(String id, int pageIndex, int pageSize);
 
   /**
    * Gets order by ıd.
@@ -37,7 +37,7 @@ public interface OrderService {
    * @param id the id
    * @return the order by ıd
    */
-  OrderResponseDTO getOrderById(String id);
+OrderResponseDTO getOrderById(String id);
 
   /**
    * Gets orders by date ınterval.
@@ -46,5 +46,5 @@ public interface OrderService {
    * @param startDate the start date
    * @return the orders by date ınterval
    */
-  List<OrderResponseDTO> getOrdersByDateInterval(Date endDate, Date startDate);
+List<OrderResponseDTO> getOrdersByDateInterval(Date endDate, Date startDate);
 }

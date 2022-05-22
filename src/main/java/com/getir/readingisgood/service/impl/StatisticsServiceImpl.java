@@ -18,7 +18,7 @@ public class StatisticsServiceImpl implements StatisticsService {
    *
    * @param orderRepository the order repository
    */
-  public StatisticsServiceImpl(OrderRepository orderRepository) {
+public StatisticsServiceImpl(OrderRepository orderRepository) {
     this.orderRepository = orderRepository;
   }
 

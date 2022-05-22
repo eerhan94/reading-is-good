@@ -19,7 +19,7 @@ public class BookStockUpdateDTO {
    *
    * @return the ıd
    */
-  public String getId() {
+public String getId() {
     return id;
   }
 
@@ -28,7 +28,7 @@ public class BookStockUpdateDTO {
    *
    * @param id the id
    */
-  public void setId(String id) {
+public void setId(String id) {
     this.id = id;
   }
 
@@ -37,7 +37,7 @@ public class BookStockUpdateDTO {
    *
    * @return the quantity
    */
-  public Integer getQuantity() {
+public Integer getQuantity() {
     return quantity;
   }
 
@@ -46,7 +46,7 @@ public class BookStockUpdateDTO {
    *
    * @param quantity the quantity
    */
-  public void setQuantity(Integer quantity) {
+public void setQuantity(Integer quantity) {
     this.quantity = quantity;
   }
 

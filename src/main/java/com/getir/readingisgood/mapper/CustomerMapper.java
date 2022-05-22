@@ -17,7 +17,7 @@ public class CustomerMapper {
    * @param customerCreateDTO the customer create dto
    * @return the customer
    */
-  public Customer customerCreateToCustomerEntity(CustomerCreateDTO customerCreateDTO) {
+public Customer customerCreateToCustomerEntity(CustomerCreateDTO customerCreateDTO) {
     Customer customer = new Customer();
     customer.setName(customerCreateDTO.getName());
     customer.setSurname(customerCreateDTO.getSurname());
@@ -33,7 +33,7 @@ public class CustomerMapper {
    * @param customer the customer
    * @return the customer response dto
    */
-  public CustomerResponseDTO customerEntityToCustomerResponse(Customer customer) {
+public CustomerResponseDTO customerEntityToCustomerResponse(Customer customer) {
     CustomerResponseDTO customerResponseDTO = new CustomerResponseDTO();
     customerResponseDTO.setId(customer.getId());
     customerResponseDTO.setName(customer.getName());

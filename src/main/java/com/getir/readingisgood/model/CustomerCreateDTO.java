@@ -27,7 +27,7 @@ public class CustomerCreateDTO {
    *
    * @return the name
    */
-  public String getName() {
+public String getName() {
     return name;
   }
 
@@ -36,7 +36,7 @@ public class CustomerCreateDTO {
    *
    * @param name the name
    */
-  public void setName(String name) {
+public void setName(String name) {
     this.name = name;
   }
 
@@ -45,7 +45,7 @@ public class CustomerCreateDTO {
    *
    * @return the surname
    */
-  public String getSurname() {
+public String getSurname() {
     return surname;
   }
 
@@ -54,7 +54,7 @@ public class CustomerCreateDTO {
    *
    * @param surname the surname
    */
-  public void setSurname(String surname) {
+public void setSurname(String surname) {
     this.surname = surname;
   }
 
@@ -63,7 +63,7 @@ public class CustomerCreateDTO {
    *
    * @return the email
    */
-  public String getEmail() {
+public String getEmail() {
     return email;
   }
 
@@ -72,7 +72,7 @@ public class CustomerCreateDTO {
    *
    * @param email the email
    */
-  public void setEmail(String email) {
+public void setEmail(String email) {
     this.email = email;
   }
 
@@ -81,7 +81,7 @@ public class CustomerCreateDTO {
    *
    * @return the phone
    */
-  public String getPhone() {
+public String getPhone() {
     return phone;
   }
 
@@ -90,7 +90,7 @@ public class CustomerCreateDTO {
    *
    * @param phone the phone
    */
-  public void setPhone(String phone) {
+public void setPhone(String phone) {
     this.phone = phone;
   }
 
@@ -99,7 +99,7 @@ public class CustomerCreateDTO {
    *
    * @return the address
    */
-  public String getAddress() {
+public String getAddress() {
     return address;
   }
 
@@ -108,7 +108,7 @@ public class CustomerCreateDTO {
    *
    * @param address the address
    */
-  public void setAddress(String address) {
+public void setAddress(String address) {
     this.address = address;
   }
 

@@ -23,7 +23,10 @@ import java.util.Optional;
  */
 @Service
 public class CustomerServiceImpl implements CustomerService {
-  Logger logger = LoggerFactory.getLogger(CustomerServiceImpl.class);
+  /**
+   * The Logger.
+   */
+Logger logger = LoggerFactory.getLogger(CustomerServiceImpl.class);
   private final CustomerRepository customerRepository;
   private final CustomerMapper customerMapper;
 
@@ -33,7 +36,7 @@ public class CustomerServiceImpl implements CustomerService {
    * @param customerRepository the customer repository
    * @param customerMapper the customer mapper
    */
-  @Autowired
+@Autowired
   public CustomerServiceImpl(CustomerRepository customerRepository, CustomerMapper customerMapper) {
     this.customerRepository = customerRepository;
     this.customerMapper = customerMapper;

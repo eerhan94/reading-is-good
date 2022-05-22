@@ -13,5 +13,5 @@ public interface StatisticsService {
    * @param customerId the customer ıd
    * @return the statistics
    */
-  StatisticResponseDTO getStatistics(String customerId);
+StatisticResponseDTO getStatistics(String customerId);
 }

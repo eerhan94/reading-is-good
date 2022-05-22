@@ -16,7 +16,7 @@ public interface CustomerRepository extends MongoRepository<Customer, String> {
    * @param email the email
    * @return the customer
    */
-  Customer findByEmail(String email);
+Customer findByEmail(String email);
 
   /**
    * Find by phone customer.
@@ -24,5 +24,5 @@ public interface CustomerRepository extends MongoRepository<Customer, String> {
    * @param phone the phone
    * @return the customer
    */
-  Customer findByPhone(String phone);
+Customer findByPhone(String phone);
 }

@@ -22,7 +22,7 @@ public class StatisticsController {
    *
    * @param statisticsService the statistics service
    */
-  public StatisticsController(StatisticsService statisticsService) {
+public StatisticsController(StatisticsService statisticsService) {
     this.statisticsService = statisticsService;
   }
 
@@ -32,7 +32,7 @@ public class StatisticsController {
    * @param id the id
    * @return the statistics
    */
-  @GetMapping
+@GetMapping
   public ResponseEntity<StatisticResponseDTO> getStatistics(@RequestParam String id) {
     return ResponseEntity.ok(statisticsService.getStatistics(id));
   }

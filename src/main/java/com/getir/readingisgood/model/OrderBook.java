@@ -12,7 +12,7 @@ public class OrderBook {
    *
    * @return the book ıd
    */
-  public String getBookId() {
+public String getBookId() {
     return bookId;
   }
 
@@ -21,7 +21,7 @@ public class OrderBook {
    *
    * @param bookId the book ıd
    */
-  public void setBookId(String bookId) {
+public void setBookId(String bookId) {
     this.bookId = bookId;
   }
 
@@ -30,7 +30,7 @@ public class OrderBook {
    *
    * @return the quantity
    */
-  public Integer getQuantity() {
+public Integer getQuantity() {
     return quantity;
   }
 
@@ -39,7 +39,7 @@ public class OrderBook {
    *
    * @param quantity the quantity
    */
-  public void setQuantity(Integer quantity) {
+public void setQuantity(Integer quantity) {
     this.quantity = quantity;
   }
 

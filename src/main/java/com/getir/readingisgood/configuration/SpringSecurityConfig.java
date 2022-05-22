@@ -42,7 +42,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
    * @param jwtFilter the jwt filter
    * @param userDetailsService the user details service
    */
-  public SpringSecurityConfig(JwtFilter jwtFilter, CustomUserDetailsService userDetailsService) {
+public SpringSecurityConfig(JwtFilter jwtFilter, CustomUserDetailsService userDetailsService) {
     this.jwtFilter = jwtFilter;
     this.userDetailsService = userDetailsService;
   }
@@ -77,7 +77,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
    *
    * @return the password encoder
    */
-  @Bean
+@Bean
   public PasswordEncoder passwordEncoder() {
     return new BCryptPasswordEncoder();
   }

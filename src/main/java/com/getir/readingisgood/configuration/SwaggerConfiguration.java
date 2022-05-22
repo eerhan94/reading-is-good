@@ -32,7 +32,7 @@ public class SwaggerConfiguration {
    *
    * @return the docket
    */
-  @Bean
+@Bean
   public Docket api() {
     return new Docket(DocumentationType.SWAGGER_2)
         .select()

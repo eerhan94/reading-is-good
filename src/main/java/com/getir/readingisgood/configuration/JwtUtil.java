@@ -26,7 +26,7 @@ public class JwtUtil implements Serializable {
    * @param token the token
    * @return the string
    */
-  public String extractUsername(String token) {
+public String extractUsername(String token) {
     return extractClaim(token, Claims::getSubject);
   }
 
@@ -36,19 +36,19 @@ public class JwtUtil implements Serializable {
    * @param token the token
    * @return the date
    */
-  public Date extractExpiration(String token) {
+public Date extractExpiration(String token) {
     return extractClaim(token, Claims::getExpiration);
   }
 
   /**
    * Extract claim t.
    *
-   * @param <T> the type parameter
+   * @param <T>  the type parameter
    * @param token the token
    * @param claimsResolver the claims resolver
    * @return the t
    */
-  public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
+public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
     final Claims claims = extractAllClaims(token);
     return claimsResolver.apply(claims);
   }
@@ -67,7 +67,7 @@ public class JwtUtil implements Serializable {
    * @param userDetails the user details
    * @return the string
    */
-  public String generateToken(UserDetails userDetails) {
+public String generateToken(UserDetails userDetails) {
     Map<String, Object> claims = new HashMap<>();
     return createToken(claims, userDetails.getUsername());
   }
@@ -89,7 +89,7 @@ public class JwtUtil implements Serializable {
    * @param userDetails the user details
    * @return the boolean
    */
-  public boolean validateToken(String token, UserDetails userDetails) {
+public boolean validateToken(String token, UserDetails userDetails) {
     final String username = extractUsername(token);
     return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
   }
