@@ -19,7 +19,9 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping(path = "/book")
 public class BookController {
+  /** The Logger. */
   Logger logger = LoggerFactory.getLogger(BookController.class);
+
   private final BookService bookService;
 
   /**

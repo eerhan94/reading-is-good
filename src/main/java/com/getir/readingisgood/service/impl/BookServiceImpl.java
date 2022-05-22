@@ -23,7 +23,9 @@ import java.util.Optional;
  */
 @Service
 public class BookServiceImpl implements BookService {
+  /** The Logger. */
   Logger logger = LoggerFactory.getLogger(BookServiceImpl.class);
+
   private final BookRepository bookRepository;
   private final BookMapper bookMapper;
 

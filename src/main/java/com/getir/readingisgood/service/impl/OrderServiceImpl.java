@@ -33,7 +33,9 @@ import java.util.stream.Collectors;
  */
 @Service
 public class OrderServiceImpl implements OrderService {
+  /** The Logger. */
   Logger logger = LoggerFactory.getLogger(OrderServiceImpl.class);
+
   private final OrderRepository orderRepository;
   private final OrderMapper orderMapper;
   private final CustomerService customerService;

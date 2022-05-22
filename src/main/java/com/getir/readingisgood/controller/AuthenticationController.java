@@ -22,7 +22,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(path = "/authenticate")
 public class AuthenticationController {
+  /** The Logger. */
   Logger logger = LoggerFactory.getLogger(AuthenticationController.class);
+
   private final JwtUtil jwtUtil;
   private final AuthenticationManager authenticationManager;
   private final CustomUserDetailsService userDetailsService;
