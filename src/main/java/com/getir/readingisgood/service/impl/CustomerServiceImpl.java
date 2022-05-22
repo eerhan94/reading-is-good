@@ -11,6 +11,7 @@ import com.getir.readingisgood.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -31,7 +32,19 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public CustomerResponseDTO createCustomer(CustomerCreateDTO customerCreateDTO) {
         Customer customer = customerMapper.customerCreateToCustomerEntity(customerCreateDTO);
+        uniqueValidation(customerCreateDTO);
         return customerMapper.customerEntityToCustomerResponse(customerRepository.save(customer));
+    }
+
+    private void uniqueValidation(CustomerCreateDTO customerCreateDTO) {
+        Customer customer = customerRepository.findByEmail(customerCreateDTO.getEmail());
+        if (Objects.nonNull(customer)) {
+            throw new GlobalApiException(ErrorCodes.EMAIL_ALREADY_USING);
+        }
+        customer = customerRepository.findByPhone(customerCreateDTO.getPhone());
+        if (Objects.nonNull(customer)) {
+            throw new GlobalApiException(ErrorCodes.PHONE_ALREADY_USING);
+        }
     }
 
     @Override

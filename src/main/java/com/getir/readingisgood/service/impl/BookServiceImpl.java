@@ -12,6 +12,7 @@ import com.getir.readingisgood.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -32,6 +33,9 @@ public class BookServiceImpl implements BookService {
     @Override
     public BookResponseDTO createBook(BookCreateDTO bookCreateDTO) {
         Book book = bookMapper.booCreateToBookEntity(bookCreateDTO);
+        if (Objects.nonNull(bookRepository.findByName(bookCreateDTO.getName()))) {
+            throw new GlobalApiException(ErrorCodes.BOOK_NAME_ALREADY_EXIST);
+        }
         return bookMapper.bookEntityToBookResponse(bookRepository.save(book));
     }
 

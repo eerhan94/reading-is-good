@@ -8,4 +8,5 @@ import org.springframework.data.mongodb.repository.MongoRepository;
  * @Version 1.0
  */
 public interface BookRepository extends MongoRepository<Book, String> {
+    Book findByName(String name);
 }

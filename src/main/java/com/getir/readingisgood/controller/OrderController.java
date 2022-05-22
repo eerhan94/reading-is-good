@@ -7,6 +7,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.List;
 
 /**
  * @Author Eyup Erhan KARAASLAN - eyuperhankaraaslan94@gmail.com
@@ -16,9 +20,11 @@ import javax.validation.Valid;
 @RequestMapping(path = "/order")
 public class OrderController {
     private final OrderService orderService;
+    private final DateFormat dateFormat;
 
     public OrderController(OrderService orderService) {
         this.orderService = orderService;
+        this.dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     }
 
     @PostMapping
@@ -29,5 +35,10 @@ public class OrderController {
     @GetMapping("/{id}")
     public ResponseEntity<OrderResponseDTO> getOrdersByCustomerId(@PathVariable String id) {
         return ResponseEntity.ok(orderService.getOrderById(id));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<OrderResponseDTO>> getOrdersByDateInterval(@RequestHeader(value = "startDate") String endDate, @RequestHeader(value = "endDate") String startDate) throws ParseException {
+        return ResponseEntity.ok(orderService.getOrdersByDateInterval(dateFormat.parse(endDate), dateFormat.parse(startDate)));
     }
 }

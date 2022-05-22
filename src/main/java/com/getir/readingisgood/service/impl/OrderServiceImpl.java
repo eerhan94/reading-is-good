@@ -19,8 +19,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * @Author Eyup Erhan KARAASLAN - eyuperhankaraaslan94@gmail.com
@@ -58,9 +60,8 @@ public class OrderServiceImpl implements OrderService {
         order.setOrderBooks(orderBookList);
         order.setTotalPrice(totalPrice);
         order.setCustomerId(orderCreateDTO.getCustomerId());
-        orderRepository.save(order);
-        //TODO
-        return null;
+        order = orderRepository.save(order);
+        return orderMapper.orderEntityToOrderResponse(order);
     }
 
     @Override
@@ -78,6 +79,12 @@ public class OrderServiceImpl implements OrderService {
         } else {
             throw new GlobalApiException(ErrorCodes.ORDER_NOT_FOUND);
         }
+    }
+
+    @Override
+    public List<OrderResponseDTO> getOrdersByDateInterval(Date endDate, Date startDate) {
+        List<Order> orderList = orderRepository.findByCreatedAtBetween(endDate, startDate);
+        return orderList.stream().map(orderMapper::orderEntityToOrderResponse).collect(Collectors.toList());
     }
 
     public void customerValidate(String id) {
