@@ -13,28 +13,50 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 /**
- * @Author Eyup Erhan KARAASLAN - eyuperhankaraaslan94@gmail.com
- * @Version 1.0
+ * The type Customer controller. @Author Eyup Erhan KARAASLAN -
+ * eyuperhankaraaslan94@gmail.com @Version 1.0
  */
 @RestController
 @RequestMapping(path = "/customer")
 public class CustomerController {
-    private final CustomerService customerService;
-    private final OrderService orderService;
+  private final CustomerService customerService;
+  private final OrderService orderService;
 
-    @Autowired
-    public CustomerController(CustomerService customerService, OrderService orderService) {
-        this.customerService = customerService;
-        this.orderService = orderService;
-    }
+  /**
+   * Instantiates a new Customer controller.
+   *
+   * @param customerService the customer service
+   * @param orderService the order service
+   */
+  @Autowired
+  public CustomerController(CustomerService customerService, OrderService orderService) {
+    this.customerService = customerService;
+    this.orderService = orderService;
+  }
 
-    @PostMapping
-    public ResponseEntity<CustomerResponseDTO> createCustomer(@Valid @RequestBody CustomerCreateDTO customerCreateDTO) {
-        return ResponseEntity.ok(customerService.createCustomer(customerCreateDTO));
-    }
+  /**
+   * Create customer response entity.
+   *
+   * @param customerCreateDTO the customer create dto
+   * @return the response entity
+   */
+  @PostMapping
+  public ResponseEntity<CustomerResponseDTO> createCustomer(
+      @Valid @RequestBody CustomerCreateDTO customerCreateDTO) {
+    return ResponseEntity.ok(customerService.createCustomer(customerCreateDTO));
+  }
 
-    @GetMapping("/orders")
-    public ResponseEntity<Page<Order>> getOrdersByCustomerId(@RequestParam String id, @RequestParam int pageIndex, @RequestParam int pageSize) {
-        return ResponseEntity.ok(orderService.getCustomerOrders(id, pageIndex, pageSize));
-    }
+  /**
+   * Gets orders by customer ıd.
+   *
+   * @param id the id
+   * @param pageIndex the page ındex
+   * @param pageSize the page size
+   * @return the orders by customer ıd
+   */
+  @GetMapping("/orders")
+  public ResponseEntity<Page<Order>> getOrdersByCustomerId(
+      @RequestParam String id, @RequestParam int pageIndex, @RequestParam int pageSize) {
+    return ResponseEntity.ok(orderService.getCustomerOrders(id, pageIndex, pageSize));
+  }
 }

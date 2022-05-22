@@ -5,11 +5,23 @@ import com.getir.readingisgood.model.CustomerCreateDTO;
 import com.getir.readingisgood.model.CustomerResponseDTO;
 
 /**
- * @Author Eyup Erhan KARAASLAN - eyuperhankaraaslan94@gmail.com
- * @Version 1.0
+ * The interface Customer service. @Author Eyup Erhan KARAASLAN -
+ * eyuperhankaraaslan94@gmail.com @Version 1.0
  */
 public interface CustomerService {
-    CustomerResponseDTO createCustomer(CustomerCreateDTO customerCreateDTO);
+  /**
+   * Create customer customer response dto.
+   *
+   * @param customerCreateDTO the customer create dto
+   * @return the customer response dto
+   */
+  CustomerResponseDTO createCustomer(CustomerCreateDTO customerCreateDTO);
 
-    Customer getCustomerById(String id);
+  /**
+   * Gets customer by ıd.
+   *
+   * @param id the id
+   * @return the customer by ıd
+   */
+  Customer getCustomerById(String id);
 }

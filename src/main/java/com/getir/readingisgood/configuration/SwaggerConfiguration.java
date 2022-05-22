@@ -18,45 +18,48 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * @Author Eyup Erhan KARAASLAN - eyuperhankaraaslan94@gmail.com
- * @Version 1.0
+ * The type Swagger configuration. @Author Eyup Erhan KARAASLAN -
+ * eyuperhankaraaslan94@gmail.com @Version 1.0
  */
 @Configuration
 public class SwaggerConfiguration {
 
-    @Value("${spring.application.name}")
-    private String applicationName;
+  @Value("${spring.application.name}")
+  private String applicationName;
 
-    @Bean
-    public Docket api() {
-        return new Docket(DocumentationType.SWAGGER_2)
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("com.getir"))
-                .paths(PathSelectors.any())
-                .build()
-                .apiInfo(apiInfo())
-                .securityContexts(Arrays.asList(securityContext()))
-                .securitySchemes(Arrays.asList(apiKey()));
-    }
+  /**
+   * Api docket.
+   *
+   * @return the docket
+   */
+  @Bean
+  public Docket api() {
+    return new Docket(DocumentationType.SWAGGER_2)
+        .select()
+        .apis(RequestHandlerSelectors.basePackage("com.getir"))
+        .paths(PathSelectors.any())
+        .build()
+        .apiInfo(apiInfo())
+        .securityContexts(Arrays.asList(securityContext()))
+        .securitySchemes(Arrays.asList(apiKey()));
+  }
 
-    private ApiInfo apiInfo() {
-        return new ApiInfoBuilder()
-                .title(applicationName)
-                .build();
-    }
+  private ApiInfo apiInfo() {
+    return new ApiInfoBuilder().title(applicationName).build();
+  }
 
-    private ApiKey apiKey() {
-        return new ApiKey("JWT", "Authorization", "header");
-    }
+  private ApiKey apiKey() {
+    return new ApiKey("JWT", "Authorization", "header");
+  }
 
-    private SecurityContext securityContext() {
-        return SecurityContext.builder().securityReferences(defaultAuth()).build();
-    }
+  private SecurityContext securityContext() {
+    return SecurityContext.builder().securityReferences(defaultAuth()).build();
+  }
 
-    private List<SecurityReference> defaultAuth() {
-        AuthorizationScope authorizationScope = new AuthorizationScope("global", "accessEverything");
-        AuthorizationScope[] authorizationScopes = new AuthorizationScope[1];
-        authorizationScopes[0] = authorizationScope;
-        return Arrays.asList(new SecurityReference("JWT", authorizationScopes));
-    }
+  private List<SecurityReference> defaultAuth() {
+    AuthorizationScope authorizationScope = new AuthorizationScope("global", "accessEverything");
+    AuthorizationScope[] authorizationScopes = new AuthorizationScope[1];
+    authorizationScopes[0] = authorizationScope;
+    return Arrays.asList(new SecurityReference("JWT", authorizationScopes));
+  }
 }

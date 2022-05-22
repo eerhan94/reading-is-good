@@ -10,28 +10,46 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-
 /**
- * @Author Eyup Erhan KARAASLAN - eyuperhankaraaslan94@gmail.com
- * @Version 1.0
+ * The type Book controller. @Author Eyup Erhan KARAASLAN - eyuperhankaraaslan94@gmail.com @Version
+ * 1.0
  */
 @RestController
 @RequestMapping(path = "/book")
 public class BookController {
-    private final BookService bookService;
+  private final BookService bookService;
 
-    @Autowired
-    public BookController(BookService bookService) {
-        this.bookService = bookService;
-    }
+  /**
+   * Instantiates a new Book controller.
+   *
+   * @param bookService the book service
+   */
+  @Autowired
+  public BookController(BookService bookService) {
+    this.bookService = bookService;
+  }
 
-    @PostMapping()
-    public ResponseEntity<BookResponseDTO> bookCreate(@Valid @RequestBody BookCreateDTO bookCreateDTO) {
-        return ResponseEntity.ok(bookService.createBook(bookCreateDTO));
-    }
+  /**
+   * Book create response entity.
+   *
+   * @param bookCreateDTO the book create dto
+   * @return the response entity
+   */
+  @PostMapping()
+  public ResponseEntity<BookResponseDTO> bookCreate(
+      @Valid @RequestBody BookCreateDTO bookCreateDTO) {
+    return ResponseEntity.ok(bookService.createBook(bookCreateDTO));
+  }
 
-    @PutMapping
-    public ResponseEntity<BookResponseDTO> bookStockUpdate(@Valid @RequestBody BookStockUpdateDTO bookStockUpdateDTO) {
-        return ResponseEntity.ok(bookService.bookStockUpdate(bookStockUpdateDTO));
-    }
+  /**
+   * Book stock update response entity.
+   *
+   * @param bookStockUpdateDTO the book stock update dto
+   * @return the response entity
+   */
+  @PutMapping
+  public ResponseEntity<BookResponseDTO> bookStockUpdate(
+      @Valid @RequestBody BookStockUpdateDTO bookStockUpdateDTO) {
+    return ResponseEntity.ok(bookService.bookStockUpdate(bookStockUpdateDTO));
+  }
 }

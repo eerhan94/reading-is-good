@@ -4,28 +4,49 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 /**
- * @Author Eyup Erhan KARAASLAN - eyuperhankaraaslan94@gmail.com
- * @Version 1.0
+ * The type Book stock update dto. @Author Eyup Erhan KARAASLAN -
+ * eyuperhankaraaslan94@gmail.com @Version 1.0
  */
 public class BookStockUpdateDTO {
-    @NotEmpty(message = "Please provide a id")
-    private String id;
-    @NotNull(message = "Please provide a quantity")
-    private Integer quantity;
+  @NotEmpty(message = "Please provide a id")
+  private String id;
 
-    public String getId() {
-        return id;
-    }
+  @NotNull(message = "Please provide a quantity")
+  private Integer quantity;
 
-    public void setId(String id) {
-        this.id = id;
-    }
+  /**
+   * Gets ıd.
+   *
+   * @return the ıd
+   */
+  public String getId() {
+    return id;
+  }
 
-    public Integer getQuantity() {
-        return quantity;
-    }
+  /**
+   * Sets ıd.
+   *
+   * @param id the id
+   */
+  public void setId(String id) {
+    this.id = id;
+  }
 
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
+  /**
+   * Gets quantity.
+   *
+   * @return the quantity
+   */
+  public Integer getQuantity() {
+    return quantity;
+  }
+
+  /**
+   * Sets quantity.
+   *
+   * @param quantity the quantity
+   */
+  public void setQuantity(Integer quantity) {
+    this.quantity = quantity;
+  }
 }

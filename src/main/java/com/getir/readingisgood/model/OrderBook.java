@@ -1,26 +1,45 @@
 package com.getir.readingisgood.model;
 
 /**
- * @Author Eyup Erhan KARAASLAN - eyuperhankaraaslan94@gmail.com
- * @Version 1.0
+ * The type Order book. @Author Eyup Erhan KARAASLAN - eyuperhankaraaslan94@gmail.com @Version 1.0
  */
 public class OrderBook {
-    private String bookId;
-    private Integer quantity;
+  private String bookId;
+  private Integer quantity;
 
-    public String getBookId() {
-        return bookId;
-    }
+  /**
+   * Gets book ıd.
+   *
+   * @return the book ıd
+   */
+  public String getBookId() {
+    return bookId;
+  }
 
-    public void setBookId(String bookId) {
-        this.bookId = bookId;
-    }
+  /**
+   * Sets book ıd.
+   *
+   * @param bookId the book ıd
+   */
+  public void setBookId(String bookId) {
+    this.bookId = bookId;
+  }
 
-    public Integer getQuantity() {
-        return quantity;
-    }
+  /**
+   * Gets quantity.
+   *
+   * @return the quantity
+   */
+  public Integer getQuantity() {
+    return quantity;
+  }
 
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
+  /**
+   * Sets quantity.
+   *
+   * @param quantity the quantity
+   */
+  public void setQuantity(Integer quantity) {
+    this.quantity = quantity;
+  }
 }

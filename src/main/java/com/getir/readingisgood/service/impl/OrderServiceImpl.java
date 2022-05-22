@@ -17,6 +17,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -25,80 +26,100 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
- * @Author Eyup Erhan KARAASLAN - eyuperhankaraaslan94@gmail.com
- * @Version 1.0
+ * The type Order service. @Author Eyup Erhan KARAASLAN - eyuperhankaraaslan94@gmail.com @Version
+ * 1.0
  */
 @Service
 public class OrderServiceImpl implements OrderService {
-    private final OrderRepository orderRepository;
-    private final OrderMapper orderMapper;
-    private final CustomerService customerService;
-    private final BookService bookService;
+  private final OrderRepository orderRepository;
+  private final OrderMapper orderMapper;
+  private final CustomerService customerService;
+  private final BookService bookService;
 
-    public OrderServiceImpl(OrderRepository orderRepository, OrderMapper orderMapper, CustomerService customerService, BookService bookService) {
-        this.orderRepository = orderRepository;
-        this.orderMapper = orderMapper;
-        this.customerService = customerService;
-        this.bookService = bookService;
-    }
+  /**
+   * Instantiates a new Order service.
+   *
+   * @param orderRepository the order repository
+   * @param orderMapper the order mapper
+   * @param customerService the customer service
+   * @param bookService the book service
+   */
+  public OrderServiceImpl(
+      OrderRepository orderRepository,
+      OrderMapper orderMapper,
+      CustomerService customerService,
+      BookService bookService) {
+    this.orderRepository = orderRepository;
+    this.orderMapper = orderMapper;
+    this.customerService = customerService;
+    this.bookService = bookService;
+  }
 
-    @Override
-    public OrderResponseDTO createOrder(OrderCreateDTO orderCreateDTO) {
-        Order order = new Order();
-        List<OrderBook> orderBookList = new ArrayList<>();
-        Double totalPrice = 0.0;
-        customerValidate(orderCreateDTO.getCustomerId());
-        for (OrderBook orderBook : orderCreateDTO.getBooks()) {
-            Book book = bookService.getBookById(orderBook.getBookId());
-            if (orderBook.getQuantity() > book.getQuantity()) {
-                throw new GlobalApiException(ErrorCodes.BOOKS_NOT_ENOUGH);
-            }
-            updateStockRecords(orderBook, book);
-            totalPrice += calculatePrice(orderBook, book.getPrice());
-            orderBookList.add(orderBook);
-        }
-        order.setOrderBooks(orderBookList);
-        order.setTotalPrice(totalPrice);
-        order.setCustomerId(orderCreateDTO.getCustomerId());
-        order = orderRepository.save(order);
-        return orderMapper.orderEntityToOrderResponse(order);
+  @Transactional
+  @Override
+  public OrderResponseDTO createOrder(OrderCreateDTO orderCreateDTO) {
+    Order order = new Order();
+    List<OrderBook> orderBookList = new ArrayList<>();
+    Double totalPrice = 0.0;
+    customerValidate(orderCreateDTO.getCustomerId());
+    for (OrderBook orderBook : orderCreateDTO.getBooks()) {
+      Book book = bookService.getBookById(orderBook.getBookId());
+      if (orderBook.getQuantity() > book.getQuantity()) {
+        throw new GlobalApiException(ErrorCodes.BOOKS_NOT_ENOUGH);
+      }
+      updateStockRecords(orderBook, book);
+      totalPrice += calculatePrice(orderBook, book.getPrice());
+      orderBookList.add(orderBook);
     }
+    order.setOrderBooks(orderBookList);
+    order.setTotalPrice(totalPrice);
+    order.setCustomerId(orderCreateDTO.getCustomerId());
+    order = orderRepository.save(order);
+    return orderMapper.orderEntityToOrderResponse(order);
+  }
 
-    @Override
-    public Page<Order> getCustomerOrders(String id, int pageIndex, int pageSize) {
-        customerValidate(id);
-        Pageable paging = PageRequest.of(pageIndex, pageSize);
-        return orderRepository.findByCustomerId(id, paging);
-    }
+  @Override
+  public Page<Order> getCustomerOrders(String id, int pageIndex, int pageSize) {
+    customerValidate(id);
+    Pageable paging = PageRequest.of(pageIndex, pageSize);
+    return orderRepository.findByCustomerId(id, paging);
+  }
 
-    @Override
-    public OrderResponseDTO getOrderById(String id) {
-        Optional<Order> order = orderRepository.findById(id);
-        if (order.isPresent()) {
-            return orderMapper.orderEntityToOrderResponse(order.get());
-        } else {
-            throw new GlobalApiException(ErrorCodes.ORDER_NOT_FOUND);
-        }
+  @Override
+  public OrderResponseDTO getOrderById(String id) {
+    Optional<Order> order = orderRepository.findById(id);
+    if (order.isPresent()) {
+      return orderMapper.orderEntityToOrderResponse(order.get());
+    } else {
+      throw new GlobalApiException(ErrorCodes.ORDER_NOT_FOUND);
     }
+  }
 
-    @Override
-    public List<OrderResponseDTO> getOrdersByDateInterval(Date endDate, Date startDate) {
-        List<Order> orderList = orderRepository.findByCreatedAtBetween(endDate, startDate);
-        return orderList.stream().map(orderMapper::orderEntityToOrderResponse).collect(Collectors.toList());
-    }
+  @Override
+  public List<OrderResponseDTO> getOrdersByDateInterval(Date endDate, Date startDate) {
+    List<Order> orderList = orderRepository.findByCreatedAtBetween(endDate, startDate);
+    return orderList.stream()
+        .map(orderMapper::orderEntityToOrderResponse)
+        .collect(Collectors.toList());
+  }
 
-    public void customerValidate(String id) {
-        customerService.getCustomerById(id);
-    }
+  /**
+   * Customer validate.
+   *
+   * @param id the id
+   */
+  public void customerValidate(String id) {
+    customerService.getCustomerById(id);
+  }
 
-    private void updateStockRecords(OrderBook orderBook, Book book) {
-        BookStockUpdateDTO bookStockUpdateDTO = new BookStockUpdateDTO();
-        bookStockUpdateDTO.setId(book.getId());
-        bookStockUpdateDTO.setQuantity(book.getQuantity() - orderBook.getQuantity());
-        bookService.bookStockUpdate(bookStockUpdateDTO);
-    }
+  private void updateStockRecords(OrderBook orderBook, Book book) {
+    BookStockUpdateDTO bookStockUpdateDTO = new BookStockUpdateDTO();
+    bookStockUpdateDTO.setId(book.getId());
+    bookStockUpdateDTO.setQuantity(book.getQuantity() - orderBook.getQuantity());
+    bookService.bookStockUpdate(bookStockUpdateDTO);
+  }
 
-    private Double calculatePrice(OrderBook orderBook, Double price) {
-        return orderBook.getQuantity() * price;
-    }
+  private Double calculatePrice(OrderBook orderBook, Double price) {
+    return orderBook.getQuantity() * price;
+  }
 }

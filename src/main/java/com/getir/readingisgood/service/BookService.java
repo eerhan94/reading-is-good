@@ -6,13 +6,31 @@ import com.getir.readingisgood.model.BookResponseDTO;
 import com.getir.readingisgood.model.BookStockUpdateDTO;
 
 /**
- * @Author Eyup Erhan KARAASLAN - eyuperhankaraaslan94@gmail.com
- * @Version 1.0
+ * The interface Book service. @Author Eyup Erhan KARAASLAN -
+ * eyuperhankaraaslan94@gmail.com @Version 1.0
  */
 public interface BookService {
-    BookResponseDTO createBook(BookCreateDTO bookCreateDTO);
+  /**
+   * Create book book response dto.
+   *
+   * @param bookCreateDTO the book create dto
+   * @return the book response dto
+   */
+  BookResponseDTO createBook(BookCreateDTO bookCreateDTO);
 
-    BookResponseDTO bookStockUpdate(BookStockUpdateDTO bookStockUpdateDTO);
+  /**
+   * Book stock update book response dto.
+   *
+   * @param bookStockUpdateDTO the book stock update dto
+   * @return the book response dto
+   */
+  BookResponseDTO bookStockUpdate(BookStockUpdateDTO bookStockUpdateDTO);
 
-    Book getBookById(String bookId);
+  /**
+   * Gets book by ıd.
+   *
+   * @param bookId the book ıd
+   * @return the book by ıd
+   */
+  Book getBookById(String bookId);
 }

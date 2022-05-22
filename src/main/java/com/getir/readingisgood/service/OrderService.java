@@ -9,15 +9,42 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @Author Eyup Erhan KARAASLAN - eyuperhankaraaslan94@gmail.com
- * @Version 1.0
+ * The interface Order service. @Author Eyup Erhan KARAASLAN -
+ * eyuperhankaraaslan94@gmail.com @Version 1.0
  */
 public interface OrderService {
-    OrderResponseDTO createOrder(OrderCreateDTO orderCreateDTO);
+  /**
+   * Create order order response dto.
+   *
+   * @param orderCreateDTO the order create dto
+   * @return the order response dto
+   */
+  OrderResponseDTO createOrder(OrderCreateDTO orderCreateDTO);
 
-    Page<Order> getCustomerOrders(String id, int pageIndex, int pageSize);
+  /**
+   * Gets customer orders.
+   *
+   * @param id the id
+   * @param pageIndex the page ındex
+   * @param pageSize the page size
+   * @return the customer orders
+   */
+  Page<Order> getCustomerOrders(String id, int pageIndex, int pageSize);
 
-    OrderResponseDTO getOrderById(String id);
+  /**
+   * Gets order by ıd.
+   *
+   * @param id the id
+   * @return the order by ıd
+   */
+  OrderResponseDTO getOrderById(String id);
 
-    List<OrderResponseDTO> getOrdersByDateInterval(Date endDate, Date startDate);
+  /**
+   * Gets orders by date ınterval.
+   *
+   * @param endDate the end date
+   * @param startDate the start date
+   * @return the orders by date ınterval
+   */
+  List<OrderResponseDTO> getOrdersByDateInterval(Date endDate, Date startDate);
 }

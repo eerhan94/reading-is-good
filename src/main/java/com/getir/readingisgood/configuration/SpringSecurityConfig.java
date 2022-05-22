@@ -13,62 +13,78 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 /**
- * @Author Eyup Erhan KARAASLAN - eyuperhankaraaslan94@gmail.com
- * @Version 1.0
+ * The type Spring security config. @Author Eyup Erhan KARAASLAN -
+ * eyuperhankaraaslan94@gmail.com @Version 1.0
  */
 @EnableWebSecurity
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
-    private final JwtFilter jwtFilter;
-    private final CustomUserDetailsService userDetailsService;
-    private static final String[] AUTH_WHITELIST = {
-            "/v2/api-docs",
-            "/swagger-resources",
-            "/swagger-resources/**",
-            "/configuration/ui",
-            "/configuration/security",
-            "/swagger-ui.html",
-            "/webjars/**",
-            "/configuration/**",
-            "/webjars/**",
-            "/h2-console/**",
-            "/v3/api-docs/**",
-            "/swagger-ui/**",
-            "/swagger-ui.html/**"
-    };
+  private final JwtFilter jwtFilter;
+  private final CustomUserDetailsService userDetailsService;
+  private static final String[] AUTH_WHITELIST = {
+    "/v2/api-docs",
+    "/swagger-resources",
+    "/swagger-resources/**",
+    "/configuration/ui",
+    "/configuration/security",
+    "/swagger-ui.html",
+    "/webjars/**",
+    "/configuration/**",
+    "/webjars/**",
+    "/h2-console/**",
+    "/v3/api-docs/**",
+    "/swagger-ui/**",
+    "/swagger-ui.html/**"
+  };
 
-    public SpringSecurityConfig(JwtFilter jwtFilter, CustomUserDetailsService userDetailsService) {
-        this.jwtFilter = jwtFilter;
-        this.userDetailsService = userDetailsService;
-    }
+  /**
+   * Instantiates a new Spring security config.
+   *
+   * @param jwtFilter the jwt filter
+   * @param userDetailsService the user details service
+   */
+  public SpringSecurityConfig(JwtFilter jwtFilter, CustomUserDetailsService userDetailsService) {
+    this.jwtFilter = jwtFilter;
+    this.userDetailsService = userDetailsService;
+  }
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
-    }
+  @Override
+  protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+    auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+  }
 
-    @Override
-    protected void configure(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.authorizeRequests()
-                .antMatchers(AUTH_WHITELIST).permitAll();
-        httpSecurity.csrf().disable();
-        httpSecurity.headers().frameOptions().disable();
+  @Override
+  protected void configure(HttpSecurity httpSecurity) throws Exception {
+    httpSecurity.authorizeRequests().antMatchers(AUTH_WHITELIST).permitAll();
+    httpSecurity.csrf().disable();
+    httpSecurity.headers().frameOptions().disable();
 
-        httpSecurity.csrf().disable()
-                .authorizeRequests().antMatchers("/authenticate").permitAll()
-                .anyRequest().authenticated()
-                .and().sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS); // ***
-        httpSecurity.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
-    }
+    httpSecurity
+        .csrf()
+        .disable()
+        .authorizeRequests()
+        .antMatchers("/authenticate")
+        .permitAll()
+        .anyRequest()
+        .authenticated()
+        .and()
+        .sessionManagement()
+        .sessionCreationPolicy(SessionCreationPolicy.STATELESS); // ***
+    httpSecurity.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+  }
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+  /**
+   * Password encoder password encoder.
+   *
+   * @return the password encoder
+   */
+  @Bean
+  public PasswordEncoder passwordEncoder() {
+    return new BCryptPasswordEncoder();
+  }
 
-    @Bean
-    @Override
-    public AuthenticationManager authenticationManagerBean() throws Exception {
-        return super.authenticationManagerBean();
-    }
+  @Bean
+  @Override
+  public AuthenticationManager authenticationManagerBean() throws Exception {
+    return super.authenticationManagerBean();
+  }
 }

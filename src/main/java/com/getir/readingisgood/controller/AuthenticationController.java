@@ -14,26 +14,45 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @Author Eyup Erhan KARAASLAN - eyuperhankaraaslan94@gmail.com
- * @Version 1.0
+ * The type Authentication controller. @Author Eyup Erhan KARAASLAN -
+ * eyuperhankaraaslan94@gmail.com @Version 1.0
  */
 @RestController
 @RequestMapping(path = "/authenticate")
 public class AuthenticationController {
-    private final JwtUtil jwtUtil;
-    private final AuthenticationManager authenticationManager;
-    private final CustomUserDetailsService userDetailsService;
+  private final JwtUtil jwtUtil;
+  private final AuthenticationManager authenticationManager;
+  private final CustomUserDetailsService userDetailsService;
 
-    public AuthenticationController(JwtUtil jwtUtil, AuthenticationManager authenticationManager, CustomUserDetailsService userDetailsService) {
-        this.jwtUtil = jwtUtil;
-        this.authenticationManager = authenticationManager;
-        this.userDetailsService = userDetailsService;
-    }
+  /**
+   * Instantiates a new Authentication controller.
+   *
+   * @param jwtUtil the jwt util
+   * @param authenticationManager the authentication manager
+   * @param userDetailsService the user details service
+   */
+  public AuthenticationController(
+      JwtUtil jwtUtil,
+      AuthenticationManager authenticationManager,
+      CustomUserDetailsService userDetailsService) {
+    this.jwtUtil = jwtUtil;
+    this.authenticationManager = authenticationManager;
+    this.userDetailsService = userDetailsService;
+  }
 
-    @PostMapping
-    public ResponseEntity<AuthenticationResponse> creteToken(@RequestBody AuthenticationRequest authRequest) {
-        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword()));
-        UserDetails userDetails = userDetailsService.loadUserByUsername(authRequest.getUsername());
-        return ResponseEntity.ok(new AuthenticationResponse(jwtUtil.generateToken(userDetails)));
-    }
+  /**
+   * Crete token response entity.
+   *
+   * @param authRequest the auth request
+   * @return the response entity
+   */
+  @PostMapping
+  public ResponseEntity<AuthenticationResponse> creteToken(
+      @RequestBody AuthenticationRequest authRequest) {
+    authenticationManager.authenticate(
+        new UsernamePasswordAuthenticationToken(
+            authRequest.getUsername(), authRequest.getPassword()));
+    UserDetails userDetails = userDetailsService.loadUserByUsername(authRequest.getUsername());
+    return ResponseEntity.ok(new AuthenticationResponse(jwtUtil.generateToken(userDetails)));
+  }
 }

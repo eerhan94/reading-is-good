@@ -10,22 +10,41 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import static com.getir.readingisgood.exception.ErrorCodes.BAD_CREDENTIALS_EXCEPTION;
 
+/** The type Global exception handler. */
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
-    @ExceptionHandler(value = Exception.class)
-    public final ResponseEntity<Exception> handleException(
-            Exception ex) {
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ex);
-    }
+  /**
+   * Handle exception response entity.
+   *
+   * @param ex the ex
+   * @return the response entity
+   */
+  @ExceptionHandler(value = Exception.class)
+  public final ResponseEntity<Exception> handleException(Exception ex) {
+    return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ex);
+  }
 
-    @ExceptionHandler(value = BadCredentialsException.class)
-    public final ResponseEntity<ErrorResponse> handleBadCredentialsException(
-            Exception ex) {
-        return ResponseEntity.ok(new ErrorResponse(BAD_CREDENTIALS_EXCEPTION.getCode(), BAD_CREDENTIALS_EXCEPTION.getMessage()));
-    }
+  /**
+   * Handle bad credentials exception response entity.
+   *
+   * @param ex the ex
+   * @return the response entity
+   */
+  @ExceptionHandler(value = BadCredentialsException.class)
+  public final ResponseEntity<ErrorResponse> handleBadCredentialsException(Exception ex) {
+    return ResponseEntity.ok(
+        new ErrorResponse(
+            BAD_CREDENTIALS_EXCEPTION.getCode(), BAD_CREDENTIALS_EXCEPTION.getMessage()));
+  }
 
-    @ExceptionHandler(value = GlobalApiException.class)
-    public ResponseEntity<ErrorResponse> handleInvalidLinkException(GlobalApiException ex) {
-        return ResponseEntity.ok(new ErrorResponse(ex.getCode(), ex.getMessage()));
-    }
+  /**
+   * Handle ınvalid link exception response entity.
+   *
+   * @param ex the ex
+   * @return the response entity
+   */
+  @ExceptionHandler(value = GlobalApiException.class)
+  public ResponseEntity<ErrorResponse> handleInvalidLinkException(GlobalApiException ex) {
+    return ResponseEntity.ok(new ErrorResponse(ex.getCode(), ex.getMessage()));
+  }
 }

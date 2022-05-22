@@ -10,21 +10,24 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 
 /**
- * @Author Eyup Erhan KARAASLAN - eyuperhankaraaslan94@gmail.com
- * @Version 1.0
+ * The type Custom user details service. @Author Eyup Erhan KARAASLAN -
+ * eyuperhankaraaslan94@gmail.com @Version 1.0
  */
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
-    public static final String USER = "getir";
-    public static final String PASSWORD = "$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6";
+  /** The constant USER. */
+  public static final String USER = "getir";
 
-    @Override
-    public UserDetails loadUserByUsername(String username) {
-        if (USER.equals(username)) {
-            return new User(USER, PASSWORD,
-                    new ArrayList<>());
-        } else {
-            throw new GlobalApiException(ErrorCodes.USER_NOT_FOUND);
-        }
+  /** The constant PASSWORD. */
+  public static final String PASSWORD =
+      "$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6";
+
+  @Override
+  public UserDetails loadUserByUsername(String username) {
+    if (USER.equals(username)) {
+      return new User(USER, PASSWORD, new ArrayList<>());
+    } else {
+      throw new GlobalApiException(ErrorCodes.USER_NOT_FOUND);
     }
+  }
 }

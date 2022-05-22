@@ -10,59 +10,103 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-/**
- * @Author Eyup Erhan KARAASLAN - eyuperhankaraaslan94@gmail.com
- * @Version 1.0
- */
+/** The type Order. @Author Eyup Erhan KARAASLAN - eyuperhankaraaslan94@gmail.com @Version 1.0 */
 @Document(collection = "Orders")
 public class Order {
-    @Id
-    private String id;
-    private String customerId;
-    private Double totalPrice;
-    private List<OrderBook> orderBooks = new ArrayList<>();
-    @CreatedDate
-    private Date createdAt;
-    @LastModifiedDate
-    private Date updatedAt;
+  @Id private String id;
+  private String customerId;
+  private Double totalPrice;
+  private List<OrderBook> orderBooks = new ArrayList<>();
+  @CreatedDate private Date createdAt;
+  @LastModifiedDate private Date updatedAt;
 
-    public String getId() {
-        return id;
-    }
+  /**
+   * Gets ıd.
+   *
+   * @return the ıd
+   */
+  public String getId() {
+    return id;
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+  /**
+   * Sets ıd.
+   *
+   * @param id the id
+   */
+  public void setId(String id) {
+    this.id = id;
+  }
 
-    public String getCustomerId() {
-        return customerId;
-    }
+  /**
+   * Gets customer ıd.
+   *
+   * @return the customer ıd
+   */
+  public String getCustomerId() {
+    return customerId;
+  }
 
-    public void setCustomerId(String customerId) {
-        this.customerId = customerId;
-    }
+  /**
+   * Sets customer ıd.
+   *
+   * @param customerId the customer ıd
+   */
+  public void setCustomerId(String customerId) {
+    this.customerId = customerId;
+  }
 
-    public Double getTotalPrice() {
-        return totalPrice;
-    }
+  /**
+   * Gets total price.
+   *
+   * @return the total price
+   */
+  public Double getTotalPrice() {
+    return totalPrice;
+  }
 
-    public void setTotalPrice(Double totalPrice) {
-        this.totalPrice = totalPrice;
-    }
+  /**
+   * Sets total price.
+   *
+   * @param totalPrice the total price
+   */
+  public void setTotalPrice(Double totalPrice) {
+    this.totalPrice = totalPrice;
+  }
 
-    public List<OrderBook> getOrderBooks() {
-        return orderBooks;
-    }
+  /**
+   * Gets order books.
+   *
+   * @return the order books
+   */
+  public List<OrderBook> getOrderBooks() {
+    return orderBooks;
+  }
 
-    public void setOrderBooks(List<OrderBook> orderBooks) {
-        this.orderBooks = orderBooks;
-    }
+  /**
+   * Sets order books.
+   *
+   * @param orderBooks the order books
+   */
+  public void setOrderBooks(List<OrderBook> orderBooks) {
+    this.orderBooks = orderBooks;
+  }
 
-    public Date getCreatedAt() {
-        return createdAt;
-    }
+  /**
+   * Gets created at.
+   *
+   * @return the created at
+   */
+  public Date getCreatedAt() {
+    return createdAt;
+  }
 
-    public Date getUpdatedAt() {
-        return updatedAt;
-    }
+  /**
+   * Gets updated at.
+   *
+   * @return the updated at
+   */
+  public Date getUpdatedAt() {
+    return updatedAt;
+  }
 }

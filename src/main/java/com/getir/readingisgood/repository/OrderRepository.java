@@ -10,12 +10,26 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @Author Eyup Erhan KARAASLAN - eyuperhankaraaslan94@gmail.com
- * @Version 1.0
+ * The interface Order repository. @Author Eyup Erhan KARAASLAN -
+ * eyuperhankaraaslan94@gmail.com @Version 1.0
  */
 @Repository
 public interface OrderRepository extends MongoRepository<Order, String> {
-    Page<Order> findByCustomerId(String customerId, Pageable pageable);
+  /**
+   * Find by customer ıd page.
+   *
+   * @param customerId the customer ıd
+   * @param pageable the pageable
+   * @return the page
+   */
+  Page<Order> findByCustomerId(String customerId, Pageable pageable);
 
-    List<Order> findByCreatedAtBetween(Date endDate, Date startDate);
+  /**
+   * Find by created at between list.
+   *
+   * @param endDate the end date
+   * @param startDate the start date
+   * @return the list
+   */
+  List<Order> findByCreatedAtBetween(Date endDate, Date startDate);
 }

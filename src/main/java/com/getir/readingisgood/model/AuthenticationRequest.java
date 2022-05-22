@@ -1,26 +1,46 @@
 package com.getir.readingisgood.model;
 
 /**
- * @Author Eyup Erhan KARAASLAN - eyuperhankaraaslan94@gmail.com
- * @Version 1.0
+ * The type Authentication request. @Author Eyup Erhan KARAASLAN -
+ * eyuperhankaraaslan94@gmail.com @Version 1.0
  */
 public class AuthenticationRequest {
-    private String username;
-    private String password;
+  private String username;
+  private String password;
 
-    public String getUsername() {
-        return username;
-    }
+  /**
+   * Gets username.
+   *
+   * @return the username
+   */
+  public String getUsername() {
+    return username;
+  }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+  /**
+   * Sets username.
+   *
+   * @param username the username
+   */
+  public void setUsername(String username) {
+    this.username = username;
+  }
 
-    public String getPassword() {
-        return password;
-    }
+  /**
+   * Gets password.
+   *
+   * @return the password
+   */
+  public String getPassword() {
+    return password;
+  }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+  /**
+   * Sets password.
+   *
+   * @param password the password
+   */
+  public void setPassword(String password) {
+    this.password = password;
+  }
 }

@@ -1,31 +1,57 @@
 package com.getir.readingisgood.model;
 
 /**
- * @Author Eyup Erhan KARAASLAN - eyuperhankaraaslan94@gmail.com
- * @Version 1.0
+ * The type Error response. @Author Eyup Erhan KARAASLAN - eyuperhankaraaslan94@gmail.com @Version
+ * 1.0
  */
 public class ErrorResponse {
-    private int code;
-    private String message;
+  private int code;
+  private String message;
 
-    public ErrorResponse(int code, String messages) {
-        this.code = code;
-        this.message = messages;
-    }
+  /**
+   * Instantiates a new Error response.
+   *
+   * @param code the code
+   * @param messages the messages
+   */
+  public ErrorResponse(int code, String messages) {
+    this.code = code;
+    this.message = messages;
+  }
 
-    public int getCode() {
-        return code;
-    }
+  /**
+   * Gets code.
+   *
+   * @return the code
+   */
+  public int getCode() {
+    return code;
+  }
 
-    public void setCode(int code) {
-        this.code = code;
-    }
+  /**
+   * Sets code.
+   *
+   * @param code the code
+   */
+  public void setCode(int code) {
+    this.code = code;
+  }
 
-    public String getMessage() {
-        return message;
-    }
+  /**
+   * Gets message.
+   *
+   * @return the message
+   */
+  public String getMessage() {
+    return message;
+  }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
+  /**
+   * Sets message.
+   *
+   * @param message the message
+   */
+  public void setMessage(String message) {
+    this.message = message;
+  }
 }

@@ -1,62 +1,122 @@
 package com.getir.readingisgood.model;
 
 /**
- * @Author Eyup Erhan KARAASLAN - eyuperhankaraaslan94@gmail.com
- * @Version 1.0
+ * The type Customer response dto. @Author Eyup Erhan KARAASLAN -
+ * eyuperhankaraaslan94@gmail.com @Version 1.0
  */
 public class CustomerResponseDTO {
-    private String id;
-    private String name;
-    private String surname;
-    private String email;
-    private String phone;
-    private String address;
+  private String id;
+  private String name;
+  private String surname;
+  private String email;
+  private String phone;
+  private String address;
 
-    public String getId() {
-        return id;
-    }
+  /**
+   * Gets ıd.
+   *
+   * @return the ıd
+   */
+  public String getId() {
+    return id;
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+  /**
+   * Sets ıd.
+   *
+   * @param id the id
+   */
+  public void setId(String id) {
+    this.id = id;
+  }
 
-    public String getName() {
-        return name;
-    }
+  /**
+   * Gets name.
+   *
+   * @return the name
+   */
+  public String getName() {
+    return name;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  /**
+   * Sets name.
+   *
+   * @param name the name
+   */
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public String getSurname() {
-        return surname;
-    }
+  /**
+   * Gets surname.
+   *
+   * @return the surname
+   */
+  public String getSurname() {
+    return surname;
+  }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
+  /**
+   * Sets surname.
+   *
+   * @param surname the surname
+   */
+  public void setSurname(String surname) {
+    this.surname = surname;
+  }
 
-    public String getEmail() {
-        return email;
-    }
+  /**
+   * Gets email.
+   *
+   * @return the email
+   */
+  public String getEmail() {
+    return email;
+  }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+  /**
+   * Sets email.
+   *
+   * @param email the email
+   */
+  public void setEmail(String email) {
+    this.email = email;
+  }
 
-    public String getPhone() {
-        return phone;
-    }
+  /**
+   * Gets phone.
+   *
+   * @return the phone
+   */
+  public String getPhone() {
+    return phone;
+  }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
+  /**
+   * Sets phone.
+   *
+   * @param phone the phone
+   */
+  public void setPhone(String phone) {
+    this.phone = phone;
+  }
 
-    public String getAddress() {
-        return address;
-    }
+  /**
+   * Gets address.
+   *
+   * @return the address
+   */
+  public String getAddress() {
+    return address;
+  }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
+  /**
+   * Sets address.
+   *
+   * @param address the address
+   */
+  public void setAddress(String address) {
+    this.address = address;
+  }
 }

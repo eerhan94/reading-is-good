@@ -4,38 +4,70 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 /**
- * @Author Eyup Erhan KARAASLAN - eyuperhankaraaslan94@gmail.com
- * @Version 1.0
+ * The type Book create dto. @Author Eyup Erhan KARAASLAN - eyuperhankaraaslan94@gmail.com @Version
+ * 1.0
  */
 public class BookCreateDTO {
-    @NotEmpty(message = "Please provide a name")
-    private String name;
-    @NotNull(message = "Please provide a quantity")
-    private Integer quantity;
-    @NotNull(message = "Please provide a price")
-    private Double price;
+  @NotEmpty(message = "Please provide a name")
+  private String name;
 
-    public String getName() {
-        return name;
-    }
+  @NotNull(message = "Please provide a quantity")
+  private Integer quantity;
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  @NotNull(message = "Please provide a price")
+  private Double price;
 
-    public Integer getQuantity() {
-        return quantity;
-    }
+  /**
+   * Gets name.
+   *
+   * @return the name
+   */
+  public String getName() {
+    return name;
+  }
 
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
+  /**
+   * Sets name.
+   *
+   * @param name the name
+   */
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public Double getPrice() {
-        return price;
-    }
+  /**
+   * Gets quantity.
+   *
+   * @return the quantity
+   */
+  public Integer getQuantity() {
+    return quantity;
+  }
 
-    public void setPrice(Double price) {
-        this.price = price;
-    }
+  /**
+   * Sets quantity.
+   *
+   * @param quantity the quantity
+   */
+  public void setQuantity(Integer quantity) {
+    this.quantity = quantity;
+  }
+
+  /**
+   * Gets price.
+   *
+   * @return the price
+   */
+  public Double getPrice() {
+    return price;
+  }
+
+  /**
+   * Sets price.
+   *
+   * @param price the price
+   */
+  public void setPrice(Double price) {
+    this.price = price;
+  }
 }

@@ -9,20 +9,31 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @Author Eyup Erhan KARAASLAN - eyuperhankaraaslan94@gmail.com
- * @Version 1.0
+ * The type Statistics controller. @Author Eyup Erhan KARAASLAN -
+ * eyuperhankaraaslan94@gmail.com @Version 1.0
  */
 @RestController
 @RequestMapping(path = "/statistics")
 public class StatisticsController {
-    private final StatisticsService statisticsService;
+  private final StatisticsService statisticsService;
 
-    public StatisticsController(StatisticsService statisticsService) {
-        this.statisticsService = statisticsService;
-    }
+  /**
+   * Instantiates a new Statistics controller.
+   *
+   * @param statisticsService the statistics service
+   */
+  public StatisticsController(StatisticsService statisticsService) {
+    this.statisticsService = statisticsService;
+  }
 
-    @GetMapping
-    public ResponseEntity<StatisticResponseDTO> getStatistics(@RequestParam String id) {
-        return ResponseEntity.ok(statisticsService.getStatistics(id));
-    }
+  /**
+   * Gets statistics.
+   *
+   * @param id the id
+   * @return the statistics
+   */
+  @GetMapping
+  public ResponseEntity<StatisticResponseDTO> getStatistics(@RequestParam String id) {
+    return ResponseEntity.ok(statisticsService.getStatistics(id));
+  }
 }
