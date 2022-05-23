@@ -21,10 +21,9 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping(path = "/customer")
 public class CustomerController {
-  /**
-   * The Logger.
-   */
-Logger logger = LoggerFactory.getLogger(CustomerController.class);
+  /** The Logger. */
+  Logger logger = LoggerFactory.getLogger(CustomerController.class);
+
   private final CustomerService customerService;
   private final OrderService orderService;
 
@@ -34,7 +33,7 @@ Logger logger = LoggerFactory.getLogger(CustomerController.class);
    * @param customerService the customer service
    * @param orderService the order service
    */
-@Autowired
+  @Autowired
   public CustomerController(CustomerService customerService, OrderService orderService) {
     this.customerService = customerService;
     this.orderService = orderService;
@@ -46,7 +45,7 @@ Logger logger = LoggerFactory.getLogger(CustomerController.class);
    * @param customerCreateDTO the customer create dto
    * @return the response entity
    */
-@PostMapping
+  @PostMapping
   public ResponseEntity<CustomerResponseDTO> createCustomer(
       @Valid @RequestBody CustomerCreateDTO customerCreateDTO) {
     logger.info("createCustomer starting -> bookCreateDTO:{}", customerCreateDTO);
@@ -61,7 +60,7 @@ Logger logger = LoggerFactory.getLogger(CustomerController.class);
    * @param pageSize the page size
    * @return the orders by customer ıd
    */
-@GetMapping("/orders")
+  @GetMapping("/orders")
   public ResponseEntity<Page<Order>> getOrdersByCustomerId(
       @RequestParam String id, @RequestParam int pageIndex, @RequestParam int pageSize) {
     logger.info(

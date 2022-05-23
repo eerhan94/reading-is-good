@@ -7,7 +7,8 @@ import com.getir.readingisgood.model.*;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 
-import java.util.Arrays;
+import java.util.Collections;
+import java.util.Date;
 import java.util.UUID;
 
 /** @Author Eyup Erhan KARAASLAN - eyuperhankaraaslan94@gmail.com @Version 1.0 */
@@ -15,11 +16,9 @@ public class Utils {
 
   public static final int QUANTITY = 10;
   public static final double PRICE = 10.0;
-  public static final double TOTAL_PRICE = 200.0;
 
   public static String generateRandomString() {
-    String uuid = UUID.randomUUID().toString();
-    return uuid;
+    return UUID.randomUUID().toString();
   }
 
   public static Customer createCustomer() {
@@ -49,7 +48,7 @@ public class Utils {
   public static OrderCreateDTO orderCreateDTO() {
     OrderCreateDTO orderCreateDTO = new OrderCreateDTO();
     orderCreateDTO.setCustomerId(generateRandomString());
-    orderCreateDTO.setBooks(Arrays.asList(orderBook()));
+    orderCreateDTO.setBooks(Collections.singletonList(orderBook()));
     return orderCreateDTO;
   }
 
@@ -87,22 +86,23 @@ public class Utils {
   public static Order order() {
     Order order = new Order();
     order.setCustomerId(generateRandomString());
-    order.setOrderBooks(Arrays.asList(orderBook()));
+    order.setOrderBooks(Collections.singletonList(orderBook()));
+    order.setCreatedAt(new Date(System.currentTimeMillis()));
+    order.setTotalPrice(PRICE);
     return order;
   }
 
   public static Page<Order> pageOrder() {
     Order order = new Order();
     order.setCustomerId(generateRandomString());
-    order.setOrderBooks(Arrays.asList(orderBook()));
-    Page page = new PageImpl(Arrays.asList(order));
-    return page;
+    order.setOrderBooks(Collections.singletonList(orderBook()));
+    return new PageImpl(Collections.singletonList(order));
   }
 
   public static OrderResponseDTO orderResponseDTO() {
     OrderResponseDTO orderResponseDTO = new OrderResponseDTO();
     orderResponseDTO.setCustomerId(generateRandomString());
-    orderResponseDTO.setOrderBooks(Arrays.asList(orderBook()));
+    orderResponseDTO.setOrderBooks(Collections.singletonList(orderBook()));
     return orderResponseDTO;
   }
 }

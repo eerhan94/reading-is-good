@@ -14,5 +14,5 @@ public interface BookRepository extends MongoRepository<Book, String> {
    * @param name the name
    * @return the book
    */
-Book findByName(String name);
+  Book findByName(String name);
 }

@@ -67,7 +67,8 @@ public class BookServiceImpl implements BookService {
       return bookMapper.bookEntityToBookResponse(bookRepository.save(book));
     } else {
       logger.info(
-          "BookServiceImpl-createBook -> Error message:{}", ErrorCodes.BOOK_NOT_FOUND.getMessage());
+          "BookServiceImpl-bookStockUpdate -> Error message:{}",
+          ErrorCodes.BOOK_NOT_FOUND.getMessage());
       throw new GlobalApiException(ErrorCodes.BOOK_NOT_FOUND);
     }
   }
@@ -80,7 +81,8 @@ public class BookServiceImpl implements BookService {
       return book.get();
     } else {
       logger.info(
-          "BookServiceImpl-createBook -> Error message:{}", ErrorCodes.BOOK_NOT_FOUND.getMessage());
+          "BookServiceImpl-getBookById -> Error message:{}",
+          ErrorCodes.BOOK_NOT_FOUND.getMessage());
       throw new GlobalApiException(ErrorCodes.BOOK_NOT_FOUND);
     }
   }

@@ -16,10 +16,10 @@ import java.util.ArrayList;
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
   /** The constant USER. */
-public static final String USER = "getir";
+  public static final String USER = "getir";
 
   /** The constant PASSWORD. */
-public static final String PASSWORD =
+  public static final String PASSWORD =
       "$2a$10$slYQmyNdGzTn7ZLBXBChFOC9f6kFjAqPhccnP6DxlWXx2lPk1C3G6";
 
   @Override

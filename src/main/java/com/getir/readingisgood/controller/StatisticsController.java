@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * The type Statistics controller. @Author Eyup Erhan KARAASLAN -
  * eyuperhankaraaslan94@gmail.com @Version 1.0
@@ -22,7 +24,7 @@ public class StatisticsController {
    *
    * @param statisticsService the statistics service
    */
-public StatisticsController(StatisticsService statisticsService) {
+  public StatisticsController(StatisticsService statisticsService) {
     this.statisticsService = statisticsService;
   }
 
@@ -32,8 +34,8 @@ public StatisticsController(StatisticsService statisticsService) {
    * @param id the id
    * @return the statistics
    */
-@GetMapping
-  public ResponseEntity<StatisticResponseDTO> getStatistics(@RequestParam String id) {
+  @GetMapping
+  public ResponseEntity<List<StatisticResponseDTO>> getStatistics(@RequestParam String id) {
     return ResponseEntity.ok(statisticsService.getStatistics(id));
   }
 }

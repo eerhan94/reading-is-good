@@ -14,7 +14,7 @@ public class ErrorResponse {
    * @param code the code
    * @param messages the messages
    */
-public ErrorResponse(int code, String messages) {
+  public ErrorResponse(int code, String messages) {
     this.code = code;
     this.message = messages;
   }
@@ -24,7 +24,7 @@ public ErrorResponse(int code, String messages) {
    *
    * @return the code
    */
-public int getCode() {
+  public int getCode() {
     return code;
   }
 
@@ -33,7 +33,7 @@ public int getCode() {
    *
    * @param code the code
    */
-public void setCode(int code) {
+  public void setCode(int code) {
     this.code = code;
   }
 
@@ -42,7 +42,7 @@ public void setCode(int code) {
    *
    * @return the message
    */
-public String getMessage() {
+  public String getMessage() {
     return message;
   }
 
@@ -51,7 +51,7 @@ public String getMessage() {
    *
    * @param message the message
    */
-public void setMessage(String message) {
+  public void setMessage(String message) {
     this.message = message;
   }
 

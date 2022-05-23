@@ -6,23 +6,23 @@ package com.getir.readingisgood.exception;
 public enum ErrorCodes {
 
   /** The Customer not found. */
-CUSTOMER_NOT_FOUND(2001, "Customer not found"),
+  CUSTOMER_NOT_FOUND(2001, "Customer not found"),
   /** The Order not found. */
-ORDER_NOT_FOUND(2002, "Order not found"),
+  ORDER_NOT_FOUND(2002, "Order not found"),
   /** The Book not found. */
-BOOK_NOT_FOUND(2003, "Book not found"),
+  BOOK_NOT_FOUND(2003, "Book not found"),
   /** The Books not enough. */
-BOOKS_NOT_ENOUGH(2004, "Books are not enough "),
+  BOOKS_NOT_ENOUGH(2004, "Books are not enough "),
   /** The User not found. */
-USER_NOT_FOUND(2005, "User not found "),
+  USER_NOT_FOUND(2005, "User not found "),
   /** The Bad credentıals exceptıon. */
-BAD_CREDENTIALS_EXCEPTION(2006, "Incorrect username or password"),
+  BAD_CREDENTIALS_EXCEPTION(2006, "Incorrect username or password"),
   /** The Emaıl already usıng. */
-EMAIL_ALREADY_USING(2007, "Email address already using"),
+  EMAIL_ALREADY_USING(2007, "Email address already using"),
   /** The Phone already usıng. */
-PHONE_ALREADY_USING(2008, "Phone number already using"),
+  PHONE_ALREADY_USING(2008, "Phone number already using"),
   /** The Book name already exıst. */
-BOOK_NAME_ALREADY_EXIST(2009, "Book name already exist");
+  BOOK_NAME_ALREADY_EXIST(2009, "Book name already exist");
 
   private int code;
   private String message;
@@ -37,7 +37,7 @@ BOOK_NAME_ALREADY_EXIST(2009, "Book name already exist");
    *
    * @return the code
    */
-public int getCode() {
+  public int getCode() {
     return code;
   }
 
@@ -46,7 +46,7 @@ public int getCode() {
    *
    * @return the message
    */
-public String getMessage() {
+  public String getMessage() {
     return message;
   }
 }

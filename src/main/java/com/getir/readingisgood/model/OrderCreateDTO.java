@@ -18,7 +18,7 @@ public class OrderCreateDTO {
    *
    * @return the customer ıd
    */
-public String getCustomerId() {
+  public String getCustomerId() {
     return customerId;
   }
 
@@ -27,7 +27,7 @@ public String getCustomerId() {
    *
    * @param customerId the customer ıd
    */
-public void setCustomerId(String customerId) {
+  public void setCustomerId(String customerId) {
     this.customerId = customerId;
   }
 
@@ -36,7 +36,7 @@ public void setCustomerId(String customerId) {
    *
    * @return the books
    */
-public List<OrderBook> getBooks() {
+  public List<OrderBook> getBooks() {
     return books;
   }
 
@@ -45,7 +45,7 @@ public List<OrderBook> getBooks() {
    *
    * @param books the books
    */
-public void setBooks(List<OrderBook> books) {
+  public void setBooks(List<OrderBook> books) {
     this.books = books;
   }
 

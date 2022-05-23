@@ -19,7 +19,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
    * @param ex the ex
    * @return the response entity
    */
-@ExceptionHandler(value = Exception.class)
+  @ExceptionHandler(value = Exception.class)
   public final ResponseEntity<Exception> handleException(Exception ex) {
     return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ex);
   }
@@ -30,7 +30,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
    * @param ex the ex
    * @return the response entity
    */
-@ExceptionHandler(value = BadCredentialsException.class)
+  @ExceptionHandler(value = BadCredentialsException.class)
   public final ResponseEntity<ErrorResponse> handleBadCredentialsException(Exception ex) {
     return ResponseEntity.ok(
         new ErrorResponse(
@@ -43,7 +43,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
    * @param ex the ex
    * @return the response entity
    */
-@ExceptionHandler(value = GlobalApiException.class)
+  @ExceptionHandler(value = GlobalApiException.class)
   public ResponseEntity<ErrorResponse> handleInvalidLinkException(GlobalApiException ex) {
     return ResponseEntity.ok(new ErrorResponse(ex.getCode(), ex.getMessage()));
   }

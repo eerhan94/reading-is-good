@@ -22,7 +22,7 @@ public class BookCreateDTO {
    *
    * @return the name
    */
-public String getName() {
+  public String getName() {
     return name;
   }
 
@@ -31,7 +31,7 @@ public String getName() {
    *
    * @param name the name
    */
-public void setName(String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
@@ -40,7 +40,7 @@ public void setName(String name) {
    *
    * @return the quantity
    */
-public Integer getQuantity() {
+  public Integer getQuantity() {
     return quantity;
   }
 
@@ -49,7 +49,7 @@ public Integer getQuantity() {
    *
    * @param quantity the quantity
    */
-public void setQuantity(Integer quantity) {
+  public void setQuantity(Integer quantity) {
     this.quantity = quantity;
   }
 
@@ -58,7 +58,7 @@ public void setQuantity(Integer quantity) {
    *
    * @return the price
    */
-public Double getPrice() {
+  public Double getPrice() {
     return price;
   }
 
@@ -67,7 +67,7 @@ public Double getPrice() {
    *
    * @param price the price
    */
-public void setPrice(Double price) {
+  public void setPrice(Double price) {
     this.price = price;
   }
 

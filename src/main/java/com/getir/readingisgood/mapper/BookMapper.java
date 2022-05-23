@@ -16,7 +16,7 @@ public class BookMapper {
    * @param bookCreateDTO the book create dto
    * @return the book
    */
-public Book booCreateToBookEntity(BookCreateDTO bookCreateDTO) {
+  public Book booCreateToBookEntity(BookCreateDTO bookCreateDTO) {
     Book book = new Book();
     book.setName(bookCreateDTO.getName());
     book.setQuantity(bookCreateDTO.getQuantity());
@@ -30,7 +30,7 @@ public Book booCreateToBookEntity(BookCreateDTO bookCreateDTO) {
    * @param book the book
    * @return the book response dto
    */
-public BookResponseDTO bookEntityToBookResponse(Book book) {
+  public BookResponseDTO bookEntityToBookResponse(Book book) {
     BookResponseDTO bookResponseDTO = new BookResponseDTO();
     bookResponseDTO.setId(book.getId());
     bookResponseDTO.setName(book.getName());

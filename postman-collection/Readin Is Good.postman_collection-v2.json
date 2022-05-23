@@ -1,0 +1,260 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Readin Is Good",
+		"_postman_id": "e38467d9-bcff-6922-442e-e06ddfa11fc9",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authorization For Token",
+			"request": {
+				"url": "http://localhost:9091/authenticate",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n\t\"username\":\"getir\", \n\t\"password\":\"password\" \n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Customer Create",
+			"request": {
+				"url": "http://localhost:9091/customer",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnZXRpciIsImV4cCI6MTY1MzI2NTExNCwiaWF0IjoxNjUzMjQ3MTE0fQ.5xkUw5G9RrQ7CxQU1fVxPty8YIrV57PMkxFpiZp9zvM",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"Eyup Erhan\",\n\t\"surname\":\"Karaaslan\",\n\t\"email\":\"eyuperhankaraaslan94@gmail.com\",\n\t\"phone\":\"5446256605\",\n\t\"address\":\"Samsun\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Customer Orders By Id",
+			"request": {
+				"url": "http://localhost:9091/order/628a88bcc49f642e2577f501",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnZXRpciIsImV4cCI6MTY1MzI2Mzk2NywiaWF0IjoxNjUzMjQ1OTY3fQ.SH8LwWDsLym5sSAVlsxpilgQ4z_N2L8cLaeD7TfwViE",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Book Create",
+			"request": {
+				"url": "http://localhost:9091/book",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnZXRpciIsImV4cCI6MTY1MzI2Mzk2NywiaWF0IjoxNjUzMjQ1OTY3fQ.SH8LwWDsLym5sSAVlsxpilgQ4z_N2L8cLaeD7TfwViE",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Sefiller\",\n    \"quantity\": 100,\n    \"price\": 12.0\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Book Stock Update",
+			"request": {
+				"url": "http://localhost:9091/book",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnZXRpciIsImV4cCI6MTY1MzI2Mzk2NywiaWF0IjoxNjUzMjQ1OTY3fQ.SH8LwWDsLym5sSAVlsxpilgQ4z_N2L8cLaeD7TfwViE",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"628a888ec49f642e2577f500\",\n    \"quantity\": 160\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Order Create",
+			"request": {
+				"url": "http://localhost:9091/order",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnZXRpciIsImV4cCI6MTY1MzMwNjI0OSwiaWF0IjoxNjUzMjg4MjQ5fQ.HATkt8Z7HTcNJTtcTRwcL_NsDh2OzsYFzsJsKcVMKGo",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"customerId\": \"628a8f056abe076d67846ae7\",\n    \"books\": [\n\t\t{\n\t\t\t\"bookId\":\"628a8f0d6abe076d67846ae8\",\n    \t\t\"quantity\":5\n    \t}\n    ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Order Query By User Id",
+			"request": {
+				"url": {
+					"raw": "http://localhost:9091/customer/orders?id=628a8871c49f642e2577f4ff&pageIndex=0&pageSize=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"customer",
+						"orders"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "628a8871c49f642e2577f4ff",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "pageIndex",
+							"value": "0",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "pageSize",
+							"value": "5",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnZXRpciIsImV4cCI6MTY1MzI2Mzk2NywiaWF0IjoxNjUzMjQ1OTY3fQ.SH8LwWDsLym5sSAVlsxpilgQ4z_N2L8cLaeD7TfwViE",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Order Query Time Interval",
+			"request": {
+				"url": "http://localhost:9091/order",
+				"method": "GET",
+				"header": [
+					{
+						"key": "endDate",
+						"value": "2022-05-23",
+						"description": ""
+					},
+					{
+						"key": "startDate",
+						"value": "2022-05-22",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnZXRpciIsImV4cCI6MTY1MzI2Mzk2NywiaWF0IjoxNjUzMjQ1OTY3fQ.SH8LwWDsLym5sSAVlsxpilgQ4z_N2L8cLaeD7TfwViE",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Statistics Monthly",
+			"request": {
+				"url": {
+					"raw": "http://localhost:9091/statistics?id=628a8f056abe076d67846ae7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"statistics"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "628a8f056abe076d67846ae7",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnZXRpciIsImV4cCI6MTY1MzMwNjI0OSwiaWF0IjoxNjUzMjg4MjQ5fQ.HATkt8Z7HTcNJTtcTRwcL_NsDh2OzsYFzsJsKcVMKGo",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

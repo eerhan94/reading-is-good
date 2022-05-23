@@ -15,7 +15,7 @@ public interface CustomerService {
    * @param customerCreateDTO the customer create dto
    * @return the customer response dto
    */
-CustomerResponseDTO createCustomer(CustomerCreateDTO customerCreateDTO);
+  CustomerResponseDTO createCustomer(CustomerCreateDTO customerCreateDTO);
 
   /**
    * Gets customer by ıd.
@@ -23,5 +23,5 @@ CustomerResponseDTO createCustomer(CustomerCreateDTO customerCreateDTO);
    * @param id the id
    * @return the customer by ıd
    */
-Customer getCustomerById(String id);
+  Customer getCustomerById(String id);
 }

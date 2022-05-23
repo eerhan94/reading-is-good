@@ -21,10 +21,9 @@ import java.util.List;
 @RestController
 @RequestMapping(path = "/order")
 public class OrderController {
-  /**
-   * The Logger.
-   */
-Logger logger = LoggerFactory.getLogger(OrderController.class);
+  /** The Logger. */
+  Logger logger = LoggerFactory.getLogger(OrderController.class);
+
   private final OrderService orderService;
   private final DateFormat dateFormat;
 
@@ -33,7 +32,7 @@ Logger logger = LoggerFactory.getLogger(OrderController.class);
    *
    * @param orderService the order service
    */
-public OrderController(OrderService orderService) {
+  public OrderController(OrderService orderService) {
     this.orderService = orderService;
     this.dateFormat = new SimpleDateFormat("yyyy-MM-dd");
   }
@@ -44,7 +43,7 @@ public OrderController(OrderService orderService) {
    * @param orderCreateDTO the order create dto
    * @return the response entity
    */
-@PostMapping
+  @PostMapping
   public ResponseEntity<OrderResponseDTO> createOrder(
       @Valid @RequestBody OrderCreateDTO orderCreateDTO) {
     logger.info("createOrder starting -> orderCreateDTO:{}", orderCreateDTO);
@@ -57,7 +56,7 @@ public OrderController(OrderService orderService) {
    * @param id the id
    * @return the orders by customer ıd
    */
-@GetMapping("/{id}")
+  @GetMapping("/{id}")
   public ResponseEntity<OrderResponseDTO> getOrdersByCustomerId(@PathVariable String id) {
     logger.info("getOrdersByCustomerId starting -> id:{}", id);
     return ResponseEntity.ok(orderService.getOrderById(id));
@@ -71,7 +70,7 @@ public OrderController(OrderService orderService) {
    * @return the orders by date ınterval
    * @throws ParseException the parse exception
    */
-@GetMapping
+  @GetMapping
   public ResponseEntity<List<OrderResponseDTO>> getOrdersByDateInterval(
       @RequestHeader(value = "startDate") String endDate,
       @RequestHeader(value = "endDate") String startDate)

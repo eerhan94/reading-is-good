@@ -20,7 +20,7 @@ public class OrderResponseDTO {
    *
    * @return the ıd
    */
-public String getId() {
+  public String getId() {
     return id;
   }
 
@@ -29,7 +29,7 @@ public String getId() {
    *
    * @param id the id
    */
-public void setId(String id) {
+  public void setId(String id) {
     this.id = id;
   }
 
@@ -38,7 +38,7 @@ public void setId(String id) {
    *
    * @return the created at
    */
-public Date getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
@@ -47,7 +47,7 @@ public Date getCreatedAt() {
    *
    * @param createdAt the created at
    */
-public void setCreatedAt(Date createdAt) {
+  public void setCreatedAt(Date createdAt) {
     this.createdAt = createdAt;
   }
 
@@ -56,7 +56,7 @@ public void setCreatedAt(Date createdAt) {
    *
    * @return the customer ıd
    */
-public String getCustomerId() {
+  public String getCustomerId() {
     return customerId;
   }
 
@@ -65,7 +65,7 @@ public String getCustomerId() {
    *
    * @param customerId the customer ıd
    */
-public void setCustomerId(String customerId) {
+  public void setCustomerId(String customerId) {
     this.customerId = customerId;
   }
 
@@ -74,7 +74,7 @@ public void setCustomerId(String customerId) {
    *
    * @return the total price
    */
-public Double getTotalPrice() {
+  public Double getTotalPrice() {
     return totalPrice;
   }
 
@@ -83,7 +83,7 @@ public Double getTotalPrice() {
    *
    * @param totalPrice the total price
    */
-public void setTotalPrice(Double totalPrice) {
+  public void setTotalPrice(Double totalPrice) {
     this.totalPrice = totalPrice;
   }
 
@@ -92,7 +92,7 @@ public void setTotalPrice(Double totalPrice) {
    *
    * @return the order books
    */
-public List<OrderBook> getOrderBooks() {
+  public List<OrderBook> getOrderBooks() {
     return orderBooks;
   }
 
@@ -101,7 +101,7 @@ public List<OrderBook> getOrderBooks() {
    *
    * @param orderBooks the order books
    */
-public void setOrderBooks(List<OrderBook> orderBooks) {
+  public void setOrderBooks(List<OrderBook> orderBooks) {
     this.orderBooks = orderBooks;
   }
 

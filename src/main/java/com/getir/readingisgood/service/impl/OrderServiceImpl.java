@@ -66,7 +66,7 @@ public class OrderServiceImpl implements OrderService {
     logger.info("OrderServiceImpl-createOrder starting -> orderCreateDTO:{}", orderCreateDTO);
     Order order = new Order();
     List<OrderBook> orderBookList = new ArrayList<>();
-    Double totalPrice = 0.0;
+    double totalPrice = 0.0;
     customerValidate(orderCreateDTO.getCustomerId());
     for (OrderBook orderBook : orderCreateDTO.getBooks()) {
       Book book = bookService.getBookById(orderBook.getBookId());

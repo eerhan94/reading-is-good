@@ -16,7 +16,7 @@ public interface BookService {
    * @param bookCreateDTO the book create dto
    * @return the book response dto
    */
-BookResponseDTO createBook(BookCreateDTO bookCreateDTO);
+  BookResponseDTO createBook(BookCreateDTO bookCreateDTO);
 
   /**
    * Book stock update book response dto.
@@ -24,7 +24,7 @@ BookResponseDTO createBook(BookCreateDTO bookCreateDTO);
    * @param bookStockUpdateDTO the book stock update dto
    * @return the book response dto
    */
-BookResponseDTO bookStockUpdate(BookStockUpdateDTO bookStockUpdateDTO);
+  BookResponseDTO bookStockUpdate(BookStockUpdateDTO bookStockUpdateDTO);
 
   /**
    * Gets book by ıd.
@@ -32,5 +32,5 @@ BookResponseDTO bookStockUpdate(BookStockUpdateDTO bookStockUpdateDTO);
    * @param bookId the book ıd
    * @return the book by ıd
    */
-Book getBookById(String bookId);
+  Book getBookById(String bookId);
 }

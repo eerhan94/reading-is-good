@@ -12,7 +12,7 @@ public class AuthenticationResponse {
    *
    * @param token the token
    */
-public AuthenticationResponse(String token) {
+  public AuthenticationResponse(String token) {
     this.token = token;
   }
 
@@ -21,7 +21,7 @@ public AuthenticationResponse(String token) {
    *
    * @return the token
    */
-public String getToken() {
+  public String getToken() {
     return token;
   }
 
