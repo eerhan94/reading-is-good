@@ -9,11 +9,11 @@ ReadingIsGood is an online books retail firm which operates only on the Internet
 4. docker-compose up --build
  
 # Used Technologies
--Java 11
--Spring-Boot
--MongoDb
--Maven
--Docker
+1. Java 11
+2. Spring-Boot
+3. MongoDb
+4. Maven
+5. Docker
 
 # Swagger reading-is-good-api
 http://localhost:9091/swagger-ui.html#/
