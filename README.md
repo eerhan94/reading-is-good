@@ -24,9 +24,16 @@ ReadingIsGood is an online books retail firm which operates only on the Internet
 http://localhost:9091/swagger-ui.html#/
 ![image](https://user-images.githubusercontent.com/10101398/169712877-635e23ca-c1fc-4e09-a6d3-cb4ea7d2cdf1.png)
 
+# Unit test coverage
+![Screenshot_2](https://user-images.githubusercontent.com/10101398/169766932-48aa2e8e-1ac4-4e11-aad6-8e38b086d354.png)
+
 # Authentication Token Url
 curl --location --request POST 'http://localhost:9091/authenticate'
 --header 'Content-Type: application/json'
 --data-raw '{ "username":"getir", "password":"password" }'
+
+# Postman Collections
+![image](https://user-images.githubusercontent.com/10101398/169767090-2ee7b8dc-6809-4b6f-9ad0-06f474bd1ddd.png)
+
 
 
