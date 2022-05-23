@@ -1,6 +1,5 @@
 # Reading Is Good Application
-
-Project Definition
+Project Description
 ReadingIsGood is an online books retail firm which operates only on the Internet. Main target of ReadingIsGood is to deliver books from its one centralized warehouse to their customers within the same day.
 
 # Running with docker
@@ -11,13 +10,9 @@ ReadingIsGood is an online books retail firm which operates only on the Internet
  
 # Used Technologies
 -Java 11
-
 -Spring-Boot
-
 -MongoDb
-
 -Maven
-
 -Docker
 
 # Swagger reading-is-good-api
@@ -34,6 +29,3 @@ curl --location --request POST 'http://localhost:9091/authenticate'
 
 # Postman Collections
 ![image](https://user-images.githubusercontent.com/10101398/169767090-2ee7b8dc-6809-4b6f-9ad0-06f474bd1ddd.png)
-
-
-
