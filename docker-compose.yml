@@ -7,14 +7,14 @@ services:
     ports:
       - "9091:9091"
     depends_on:
-      - postgres-db
+      - mongo-db
     networks:
       - my-network
     environment:
       SPRING_DATA_MONGODB_HOST: mongo-db
       SPRING_DATA_MONGODB_PORT: 27017
       SPRING_DATA_MONGODB_DATABASE: test
-  postgres-db:
+  mongo-db:
     image: mongo:latest
     container_name: mongo-db
     restart: always
